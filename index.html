@@ -3,794 +3,284 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kuldip Patel | AI Specialist & Tech Leader</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="description" content="Kuldip Patel - AI-Certified Technology Specialist, Tech Support Team Lead, and Founder of AI School for Kids." />
+  <meta name="author" content="Kuldip Patel" />
+  <title>Kuldip Patel | AI Specialist &amp; Tech Lead</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
   <noscript><style>[data-aos]{opacity:1!important;transform:none!important;}</style></noscript>
-  <style>
-    /* Immediate visibility fix ‚Äî JS will enhance with animations */
-    .hero-content, .navbar { opacity: 1 !important; }
-  </style>
 </head>
 <body>
 
-  <!-- ‚îÄ‚îÄ‚îÄ NAVBAR ‚îÄ‚îÄ‚îÄ -->
+  <!-- ==================== NAVBAR ==================== -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="nav-logo">KP<span class="dot">.</span></a>
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-name">KP</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact" class="nav-cta">Contact</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
+      <a href="#contact" class="btn btn-nav">Hire Me</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
   </nav>
 
-  <!-- ‚îÄ‚îÄ‚îÄ HERO ‚îÄ‚îÄ‚îÄ -->
-  <section class="hero" id="hero">
-    <div class="particles" id="particles"></div>
+  <!-- ==================== HERO ==================== -->
+  <section id="hero" class="hero">
+    <canvas id="neuralCanvas"></canvas>
+    <div class="scanlines"></div>
     <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot"></span> Let's Build Something Great
+      <div class="hero-badge" data-aos="fade-down">
+        <span class="badge-dot"></span>
+        Available for AI Consulting
       </div>
-      <h1 class="hero-name">Kuldip <span class="gradient-text">Patel</span></h1>
-      <div class="hero-tagline">
-        <span class="static-text">I'm a </span>
-        <span class="typed-text" id="typedText"></span>
-        <span class="cursor">|</span>
+      <h1 class="hero-name" data-aos="fade-up" data-aos-delay="100">
+        <span class="name-first">Kuldip</span>
+        <span class="name-last gradient-text">Patel</span>
+      </h1>
+      <div class="hero-typewriter" data-aos="fade-up" data-aos-delay="200">
+        <span class="typewriter-prefix">&gt;&gt;</span>
+        <span class="typewriter-text" id="typewriterText"></span>
+        <span class="typewriter-cursor">|</span>
       </div>
-      <p class="hero-desc">
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
         AI-Certified Technology Specialist building intelligent systems that solve real-world problems.
-        Founder of <strong>AI School for Kids</strong> | Based in Canada
       </p>
-      <div class="hero-buttons">
+      <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
         <a href="#contact" class="btn btn-primary">
-          <i class="fas fa-paper-plane"></i> Get in Touch
+          <i class="fa-solid fa-paper-plane"></i>
+          Get in Touch
         </a>
-        <a href="#experience" class="btn btn-outline">
-          <i class="fas fa-briefcase"></i> View Experience
+        <a href="#experience" class="btn btn-secondary">
+          <i class="fa-solid fa-briefcase"></i>
+          View Experience
         </a>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">5+</span>
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+        <div class="stat-item">
+          <div class="stat-value">
+            <span class="stat-number" data-target="5">0</span><span class="stat-plus">+</span>
+          </div>
           <span class="stat-label">Years Experience</span>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">500+</span>
+        <div class="stat-item">
+          <div class="stat-value">
+            <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
+          </div>
           <span class="stat-label">Connections</span>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">1000+</span>
-          <span class="stat-label">Kids to Teach AI</span>
+        <div class="stat-item">
+          <div class="stat-value">
+            <span class="stat-number" data-target="1000">0</span><span class="stat-plus">+</span>
+          </div>
+          <span class="stat-label">Kids Taught AI</span>
         </div>
       </div>
     </div>
-    <div class="hero-scroll-hint">
+    <div class="hero-scroll-indicator">
       <span>Scroll</span>
       <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ‚îÄ‚îÄ‚îÄ ABOUT ‚îÄ‚îÄ‚îÄ -->
-  <section class="section" id="about">
+  <!-- ==================== AI SCHOOL FEATURED ==================== -->
+  <section id="ai-school" class="ai-school-section">
     <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">About Me</span>
-        <h2>Who I Am</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text" data-aos>
-          <p>
-            I'm an <strong>AI-Certified Technology Specialist</strong> with a strong passion for building intelligent
-            systems that solve real-world problems. I specialize in <strong>AI chatbot development</strong>, combining
-            technical support expertise with innovative thinking to create smart, user-friendly solutions.
-          </p>
-          <p>
-            With a background in <strong>Computer Engineering</strong> and <strong>Computer Systems Networking</strong>,
-            I bring analytical precision and structured problem-solving to every project. My work spans computer systems,
-            networking, and AI content creation.
-          </p>
-          <p>
-            Currently serving as <strong>Technology Support II Team Lead</strong> at Walmart Canada, I lead a team
-            providing top-tier Level 1 support while simultaneously building <strong>AI School for Kids</strong> ‚Äî a
-            mission to teach AI to 1,000+ young learners.
-          </p>
-          <p>
-            Outside of tech, I'm a dedicated <strong>cricket enthusiast</strong> who values teamwork, strategy,
-            and precision ‚Äî both on the field and in the server room.
-          </p>
-          <div class="about-socials">
-            <a href="https://linkedin.com/in/kuldip9033" target="_blank" class="social-link">
-              <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="mailto:lazyprogrammer9033@gmail.com" class="social-link">
-              <i class="fas fa-envelope"></i> Email
-            </a>
-          </div>
-        </div>
-        <div class="about-cards" data-aos>
-          <div class="info-card">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <span class="info-label">Location</span>
-              <span class="info-value">Based in Canada</span>
-            </div>
-          </div>
-          <div class="info-card">
-            <i class="fas fa-briefcase"></i>
-            <div>
-              <span class="info-label">Current Role</span>
-              <span class="info-value">Tech Support II Team Lead @ Walmart Canada</span>
-            </div>
-          </div>
-          <div class="info-card">
-            <i class="fas fa-rocket"></i>
-            <div>
-              <span class="info-label">Venture</span>
-              <span class="info-value">Founder @ AI School for Kids</span>
-            </div>
-          </div>
-          <div class="info-card">
-            <i class="fas fa-graduation-cap"></i>
-            <div>
-              <span class="info-label">Education</span>
-              <span class="info-value">B.E. Computer Engineering + Networking Diploma</span>
-            </div>
-          </div>
-          <div class="info-card">
-            <i class="fas fa-certificate"></i>
-            <div>
-              <span class="info-label">Certifications</span>
-              <span class="info-value">Google Generative AI ¬∑ Python (Google)</span>
-            </div>
-          </div>
-          <div class="info-card">
-            <i class="fas fa-heart"></i>
-            <div>
-              <span class="info-label">Interests</span>
-              <span class="info-value">AI ¬∑ Machine Learning ¬∑ Cricket üèè</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ‚îÄ‚îÄ‚îÄ EXPERIENCE ‚îÄ‚îÄ‚îÄ -->
-  <section class="section section-dark" id="experience">
-    <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">Career Journey</span>
-        <h2>Experience</h2>
-      </div>
-      <div class="timeline">
-
-        <div class="timeline-item" data-aos>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-icon ai-school">üéì</div>
-              <div class="tl-meta">
-                <h3>Founder & CEO</h3>
-                <span class="tl-company">AI School for Kids</span>
-                <span class="tl-date"><i class="fas fa-calendar"></i> Jan 2026 ‚Äì Present ¬∑ 3 mos</span>
-                <span class="tl-location"><i class="fas fa-map-marker-alt"></i> Canada ¬∑ Remote</span>
-              </div>
-              <span class="tl-badge current">Current</span>
-            </div>
-            <ul class="tl-bullets">
-              <li>Founder & CEO focused on turning young learners into confident AI creators</li>
-              <li>Building AI School for Kids from concept to launch with a mission to reach 1,000+ kids with AI education</li>
-              <li>Designing curriculum, managing operations, and growing the brand across Canada</li>
-            </ul>
-            <div class="tl-tags">
-              <span>AI Education</span><span>Entrepreneurship</span><span>Curriculum Design</span><span>Leadership</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item" data-aos>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-icon walmart">üõí</div>
-              <div class="tl-meta">
-                <h3>Technology Support II, Team Lead</h3>
-                <span class="tl-company">Walmart Canada</span>
-                <span class="tl-date"><i class="fas fa-calendar"></i> May 2023 ‚Äì Present ¬∑ 2 yrs 11 mos</span>
-                <span class="tl-location"><i class="fas fa-map-marker-alt"></i> Mississauga, Ontario ¬∑ Hybrid</span>
-              </div>
-              <span class="tl-badge current">Current</span>
-            </div>
-            <ul class="tl-bullets">
-              <li>Play a pivotal role in enhancing IT operations and support for Walmart Canada</li>
-              <li>Lead a team providing top-tier Level 1 support, managing incidents and escalations</li>
-              <li>Specializing in Microsoft Azure, Information Technology operations and team management</li>
-            </ul>
-            <div class="tl-tags">
-              <span>Information Technology</span><span>Microsoft Azure</span><span>Team Leadership</span><span>ITSM</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item" data-aos>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-icon mufg">üè¶</div>
-              <div class="tl-meta">
-                <h3>Service Desk Analyst</h3>
-                <span class="tl-company">MUFG</span>
-                <span class="tl-date"><i class="fas fa-calendar"></i> Jul 2022 ‚Äì May 2023 ¬∑ 11 mos</span>
-                <span class="tl-location"><i class="fas fa-map-marker-alt"></i> Greater Toronto Area, Canada</span>
-              </div>
-            </div>
-            <ul class="tl-bullets">
-              <li>Served as a key IT professional specializing in Azure Administration, Office 365, ServiceNow</li>
-              <li>Managed complex technical support requests and improved service desk workflows</li>
-              <li>Delivered seamless IT support across diverse enterprise environments</li>
-            </ul>
-            <div class="tl-tags">
-              <span>Azure Admin</span><span>Office 365</span><span>ServiceNow</span><span>Microsoft Office</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item" data-aos>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-icon walmart">üåê</div>
-              <div class="tl-meta">
-                <h3>IT Support Specialist Level 2</h3>
-                <span class="tl-company">Walmart Global Tech</span>
-                <span class="tl-date"><i class="fas fa-calendar"></i> Oct 2021 ‚Äì Jul 2022 ¬∑ 10 mos</span>
-                <span class="tl-location"><i class="fas fa-map-marker-alt"></i> Mississauga, Ontario, Canada</span>
-              </div>
-            </div>
-            <ul class="tl-bullets">
-              <li>Provided hands-on support for client desktop and network environments</li>
-              <li>Leveraged Azure Administration, Office 365, ServiceNow, and Active Directory</li>
-              <li>Delivered Level 2 support across multiple technical domains</li>
-            </ul>
-            <div class="tl-tags">
-              <span>Active Directory</span><span>Azure</span><span>ServiceNow</span><span>Networking</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item" data-aos>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-icon solutions">üîß</div>
-              <div class="tl-meta">
-                <h3>Computer Network Technician</h3>
-                <span class="tl-company">Solutions, Your Organized Living Store</span>
-                <span class="tl-date"><i class="fas fa-calendar"></i> Oct 2019 ‚Äì Aug 2021 ¬∑ 1 yr 11 mos</span>
-                <span class="tl-location"><i class="fas fa-map-marker-alt"></i> Mississauga, Ontario, Canada</span>
-              </div>
-            </div>
-            <ul class="tl-bullets">
-              <li>Responsible for resolving technical issues and enhancing user productivity</li>
-              <li>Provided end-to-end support across various platforms and tools</li>
-              <li>Managed computer networking and software training for end users</li>
-            </ul>
-            <div class="tl-tags">
-              <span>Computer Networking</span><span>Technical Support</span><span>Software Training</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ‚îÄ‚îÄ‚îÄ SKILLS ‚îÄ‚îÄ‚îÄ -->
-  <section class="section" id="skills">
-    <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">What I Know</span>
-        <h2>Skills & Expertise</h2>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-category" data-aos>
-          <h3><span class="cat-icon">ü§ñ</span> Artificial Intelligence</h3>
-          <div class="skill-bars">
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>AI Chatbot Development</span><span>90%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Generative AI</span><span>85%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Machine Learning</span><span>75%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>NLP</span><span>70%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category" data-aos>
-          <h3><span class="cat-icon">‚òÅÔ∏è</span> Cloud & Infrastructure</h3>
-          <div class="skill-bars">
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Microsoft Azure</span><span>88%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Azure Administration</span><span>85%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Active Directory</span><span>85%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Office 365</span><span>90%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category" data-aos>
-          <h3><span class="cat-icon">üåê</span> Networking & Support</h3>
-          <div class="skill-bars">
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Computer Networking</span><span>88%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>ServiceNow</span><span>85%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Technical Troubleshooting</span><span>92%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Network Engineering</span><span>80%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category" data-aos>
-          <h3><span class="cat-icon">üíª</span> Programming & Tools</h3>
-          <div class="skill-bars">
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Python</span><span>75%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Microsoft Office Suite</span><span>92%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Project Management</span><span>82%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>IT Team Leadership</span><span>88%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tech badges -->
-      <div class="tech-badges" data-aos>
-        <span class="tech-badge"><i class="fab fa-microsoft"></i> Azure</span>
-        <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
-        <span class="tech-badge"><i class="fas fa-robot"></i> AI/ML</span>
-        <span class="tech-badge"><i class="fas fa-network-wired"></i> Networking</span>
-        <span class="tech-badge"><i class="fas fa-cloud"></i> Cloud</span>
-        <span class="tech-badge"><i class="fas fa-ticket-alt"></i> ServiceNow</span>
-        <span class="tech-badge"><i class="fab fa-google"></i> Gen AI</span>
-        <span class="tech-badge"><i class="fas fa-users"></i> Team Lead</span>
-        <span class="tech-badge"><i class="fas fa-shield-alt"></i> Active Directory</span>
-        <span class="tech-badge"><i class="fas fa-desktop"></i> Office 365</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ‚îÄ‚îÄ‚îÄ EDUCATION ‚îÄ‚îÄ‚îÄ -->
-  <section class="section section-dark" id="education">
-    <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">Academic Background</span>
-        <h2>Education</h2>
-      </div>
-      <div class="edu-grid">
-        <div class="edu-card" data-aos>
-          <div class="edu-icon">üéì</div>
-          <div class="edu-content">
-            <h3>Bachelor's Degree, Computer Engineering</h3>
-            <span class="edu-school">Vishwakarma Government Engineering College</span>
-            <span class="edu-date">Jul 2012 ‚Äì Apr 2016</span>
-            <span class="edu-grade"><i class="fas fa-star"></i> Grade: A</span>
-            <p class="edu-desc">Strong foundation in computer systems, software engineering, algorithms, and digital electronics.</p>
-          </div>
-        </div>
-        <div class="edu-card" data-aos>
-          <div class="edu-icon">üè´</div>
-          <div class="edu-content">
-            <h3>Diploma, Computer Systems Networking & Telecommunications</h3>
-            <span class="edu-school">St. Clair College</span>
-            <span class="edu-date">2018 ‚Äì 2019</span>
-            <p class="edu-desc">Specialized training in network infrastructure, telecommunications, and enterprise IT systems.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ‚îÄ‚îÄ‚îÄ CERTIFICATIONS ‚îÄ‚îÄ‚îÄ -->
-  <section class="section" id="certifications">
-    <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">Credentials</span>
-        <h2>Licenses & Certifications</h2>
-      </div>
-      <div class="cert-grid">
-        <div class="cert-card" data-aos>
-          <div class="cert-logo google">G</div>
-          <div class="cert-content">
-            <h3>Generative AI</h3>
-            <span class="cert-issuer">Google</span>
-            <span class="cert-date"><i class="fas fa-calendar-check"></i> Issued May 2025</span>
-            <div class="cert-badge"><i class="fas fa-brain"></i> Artificial Intelligence (AI)</div>
-          </div>
-        </div>
-        <div class="cert-card" data-aos>
-          <div class="cert-logo google">G</div>
-          <div class="cert-content">
-            <h3>Crash Course on Python</h3>
-            <span class="cert-issuer">Google</span>
-            <span class="cert-date"><i class="fas fa-calendar-check"></i> Issued Jan 2024</span>
-            <div class="cert-badge"><i class="fab fa-python"></i> Python Programming</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ‚îÄ‚îÄ‚îÄ PROJECTS ‚îÄ‚îÄ‚îÄ -->
-  <section class="section section-dark" id="projects">
-    <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">What I've Built</span>
-        <h2>Projects</h2>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card featured" data-aos>
-          <div class="project-glow"></div>
-          <div class="project-header">
-            <div class="project-icon">üéì</div>
-            <span class="project-status live">Live</span>
-          </div>
-          <h3>AI School for Kids</h3>
-          <p>
-            Building an educational platform from the ground up to teach AI concepts to children.
-            Mission: reach 1,000+ kids across Canada with hands-on, engaging AI learning experiences.
-          </p>
-          <div class="project-tags">
-            <span>AI Education</span><span>EdTech</span><span>Entrepreneurship</span>
-          </div>
-          <div class="project-links">
-            <a href="https://linkedin.com/in/kuldip9033" target="_blank" class="project-link">
-              <i class="fab fa-linkedin"></i> View on LinkedIn
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card" data-aos>
-          <div class="project-header">
-            <div class="project-icon">üîÑ</div>
-            <span class="project-status completed">Completed</span>
-          </div>
-          <h3>GLS Migration</h3>
-          <p>
-            Led a critical migration from a legacy mainframe system to Walmart's in-house GLS product,
-            streamlining logistics operations and improving system reliability.
-          </p>
-          <div class="project-meta">
-            <span><i class="fas fa-building"></i> Walmart Global Tech</span>
-            <span><i class="fas fa-calendar"></i> Feb 2021 ‚Äì Jul 2022</span>
-          </div>
-          <div class="project-tags">
-            <span>System Migration</span><span>Mainframe</span><span>Enterprise IT</span>
-          </div>
-        </div>
-
-        <div class="project-card" data-aos>
-          <div class="project-header">
-            <div class="project-icon">ü§ñ</div>
-            <span class="project-status ongoing">Ongoing</span>
-          </div>
-          <h3>AI Chatbot Development</h3>
-          <p>
-            Designing and building conversational AI chatbots that solve real-world problems with
-            natural language processing and machine learning at their core.
-          </p>
-          <div class="project-tags">
-            <span>NLP</span><span>Chatbot</span><span>Python</span><span>Gen AI</span>
-          </div>
-          <div class="project-links">
-            <a href="mailto:lazyprogrammer9033@gmail.com" class="project-link">
-              <i class="fas fa-envelope"></i> Inquire
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ‚îÄ‚îÄ‚îÄ CONTACT ‚îÄ‚îÄ‚îÄ -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">Let's Connect</span>
-        <h2>Get In Touch</h2>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info" data-aos>
-          <h3>Let's build something amazing together.</h3>
-          <p>
-            Whether you're interested in AI education, IT solutions, or just want to talk tech (or cricket!),
-            my inbox is always open!
-          </p>
-          <div class="contact-links">
-            <a href="mailto:lazyprogrammer9033@gmail.com" class="contact-link-item">
-              <div class="cl-icon"><i class="fas fa-envelope"></i></div>
-              <div>
-                <span class="cl-label">Email</span>
-                <span class="cl-value">lazyprogrammer9033@gmail.com</span>
-              </div>
-            </a>
-            <a href="https://linkedin.com/in/kuldip9033" target="_blank" class="contact-link-item">
-              <div class="cl-icon"><i class="fab fa-linkedin"></i></div>
-              <div>
-                <span class="cl-label">LinkedIn</span>
-                <span class="cl-value">linkedin.com/in/kuldip9033</span>
-              </div>
-            </a>
-            <a href="#" class="contact-link-item">
-              <div class="cl-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <div>
-                <span class="cl-label">Location</span>
-                <span class="cl-value">Based in Canada</span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <form class="contact-form" id="contactForm" data-aos>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Your Name</label>
-              <input type="text" placeholder="John Doe" required />
-            </div>
-            <div class="form-group">
-              <label>Your Email</label>
-              <input type="email" placeholder="john@example.com" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Subject</label>
-            <input type="text" placeholder="Let's collaborate!" required />
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea rows="5" placeholder="Tell me about your project or just say hi..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary full-width">
-            <i class="fas fa-paper-plane"></i> Send Message
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ‚îÄ‚îÄ‚îÄ FOOTER ‚îÄ‚îÄ‚îÄ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-logo">KP<span class="dot">.</span></div>
-        <p class="footer-text">Designed & Built by <strong>Kuldip Patel</strong> | Based in Canada</p>
-        <div class="footer-links">
-          <a href="https://linkedin.com/in/kuldip9033" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:lazyprogrammer9033@gmail.com"><i class="fas fa-envelope"></i></a>
-        </div>
-      </div>
-      <p class="footer-copy">¬© 2026 Kuldip Patel. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kuldip Patel | AI Specialist & Tech Leader</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <noscript><style>[data-aos]{opacity:1!important;transform:none!important;}</style></noscript>
-  <style>
-    /* Immediate visibility fix ‚Äî JS will enhance with animations */
-    .hero-content, .navbar { opacity: 1 !important; }
-  </style>
-</head>
-<body>
-
-  <!-- ‚îÄ‚îÄ‚îÄ NAVBAR ‚îÄ‚îÄ‚îÄ -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo">KP<span class="dot">.</span></a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact" class="nav-cta">Contact</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ‚îÄ‚îÄ‚îÄ HERO ‚îÄ‚îÄ‚îÄ -->
-  <section class="hero" id="hero">
-    <div class="particles" id="particles"></div>
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot"></span> Let's Build Something Great
-      </div>
-      <h1 class="hero-name">Kuldip <span class="gradient-text">Patel</span></h1>
-      <div class="hero-tagline">
-        <span class="static-text">I'm a </span>
-        <span class="typed-text" id="typedText"></span>
-        <span class="cursor">|</span>
-      </div>
-      <p class="hero-desc">
-        AI-Certified Technology Specialist building intelligent systems that solve real-world problems.
-        Founder of <strong>AI School for Kids</strong> ¬∑ Based in Canada
+      <div class="section-tag" data-aos="fade-up">Featured Initiative</div>
+      <h2 class="section-title glitch" data-aos="fade-up" data-aos-delay="100" data-text="AI School for Kids">
+        AI School for Kids
+      </h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+        Shaping the next generation of AI innovators
       </p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary">
-          <i class="fas fa-paper-plane"></i> Get in Touch
-        </a>
-        <a href="#experience" class="btn btn-outline">
-          <i class="fas fa-briefcase"></i> View Experience
-        </a>
+
+      <div class="ai-school-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="ai-school-card-inner">
+          <div class="ai-school-left">
+            <div class="ai-school-logo-block">
+              <div class="ai-school-icon">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <div class="ai-school-logo-text">
+                <span class="ai-school-name">AI School for Kids</span>
+                <a href="https://www.aischoolforkids.ca" target="_blank" rel="noopener noreferrer" class="ai-school-url">
+                  www.aischoolforkids.ca
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            <p class="ai-school-desc">
+              Teaching the next generation of AI innovators. Interactive AI curriculum for children ages 6-18, making artificial intelligence accessible, fun, and empowering. From Prompt Engineering to Machine Learning basics - every child deserves access to the tools of the future.
+            </p>
+            <div class="ai-school-tags">
+              <span class="tag tag-cyan">AI Education</span>
+              <span class="tag tag-purple">Kids</span>
+              <span class="tag tag-pink">Machine Learning Basics</span>
+              <span class="tag tag-green">Prompt Engineering</span>
+            </div>
+            <a href="https://www.aischoolforkids.ca" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-ai-school">
+              <i class="fa-solid fa-graduation-cap"></i>
+              Visit aischoolforkids.ca
+            </a>
+          </div>
+          <div class="ai-school-right">
+            <div class="ai-school-stats">
+              <div class="ai-stat">
+                <div class="ai-stat-number">1000+</div>
+                <div class="ai-stat-label">Students Taught</div>
+              </div>
+              <div class="ai-stat">
+                <div class="ai-stat-number">6-18</div>
+                <div class="ai-stat-label">Age Range</div>
+              </div>
+              <div class="ai-stat">
+                <div class="ai-stat-number">Canada</div>
+                <div class="ai-stat-label">Nationwide</div>
+              </div>
+            </div>
+            <div class="ai-school-terminal">
+              <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot tgreen"></span>
+                <span class="terminal-title">mission.py</span>
+              </div>
+              <div class="terminal-body">
+                <pre><code><span class="code-keyword">def</span> <span class="code-fn">teach_ai</span>(child):
+    skills = [
+        <span class="code-str">"critical_thinking"</span>,
+        <span class="code-str">"prompt_engineering"</span>,
+        <span class="code-str">"ml_basics"</span>,
+        <span class="code-str">"creativity"</span>
+    ]
+    <span class="code-keyword">return</span> child.learn(skills)
+
+<span class="code-comment"># Every child is a future innovator</span>
+teach_ai(every_kid_in_canada)</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">5+</span>
-          <span class="stat-label">Years Experience</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">500+</span>
-          <span class="stat-label">Connections</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">1000+</span>
-          <span class="stat-label">Kids to Teach AI</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero-scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ‚îÄ‚îÄ‚îÄ ABOUT ‚îÄ‚îÄ‚îÄ -->
-  <section class="section" id="about">
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about" class="about-section">
+    <div class="hex-grid"></div>
     <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">About Me</span>
-        <h2>Who I Am</h2>
-      </div>
+      <div class="section-tag" data-aos="fade-up">Who I Am</div>
+      <h2 class="section-title glitch" data-aos="fade-up" data-aos-delay="100" data-text="About Me">About Me</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+        At the intersection of enterprise IT and AI education
+      </p>
+
       <div class="about-grid">
-        <div class="about-text" data-aos>
-          <p>
-            I'm an <strong>AI-Certified Technology Specialist</strong> with a strong passion for building intelligent
-            systems that solve real-world problems. I specialize in <strong>AI chatbot development</strong>, combining
-            technical support expertise with innovative thinking to create smart, user-friendly solutions.
+        <div class="about-text" data-aos="fade-right" data-aos-delay="200">
+          <p class="about-bio">
+            AI-Certified Technology Specialist and Founder of <strong>AI School for Kids</strong>, based in Canada. I lead enterprise IT operations while pioneering accessible AI education for the next generation.
           </p>
-          <p>
-            With a background in <strong>Computer Engineering</strong> and <strong>Computer Systems Networking</strong>,
-            I bring analytical precision and structured problem-solving to every project. My work spans computer systems,
-            networking, and AI content creation.
+          <p class="about-bio">
+            With expertise spanning Azure cloud infrastructure, NLP chatbot development, and hands-on AI curriculum design, I bridge the gap between cutting-edge technology and practical, real-world impact.
           </p>
-          <p>
-            Currently serving as <strong>Technology Support II Team Lead</strong> at Walmart Canada, I lead a team
-            providing top-tier Level 1 support while simultaneously building <strong>AI School for Kids</strong> ‚Äî a
-            mission to teach AI to 1,000+ young learners.
-          </p>
-          <p>
-            Outside of tech, I'm a dedicated <strong>cricket enthusiast</strong> who values teamwork, strategy,
-            and precision ‚Äî both on the field and in the server room.
-          </p>
-          <div class="about-socials">
-            <a href="https://linkedin.com/in/kuldip9033" target="_blank" class="social-link">
-              <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="mailto:lazyprogrammer9033@gmail.com" class="social-link">
-              <i class="fas fa-envelope"></i> Email
-            </a>
+          <div class="about-expertise">
+            <h3 class="expertise-title">Core Expertise</h3>
+            <div class="expertise-grid">
+              <div class="expertise-item">
+                <i class="fa-solid fa-brain"></i>
+                <span>AI/ML Systems</span>
+              </div>
+              <div class="expertise-item">
+                <i class="fa-solid fa-server"></i>
+                <span>IT Infrastructure</span>
+              </div>
+              <div class="expertise-item">
+                <i class="fa-solid fa-users"></i>
+                <span>Team Leadership</span>
+              </div>
+              <div class="expertise-item">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>AI Education</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="about-cards" data-aos>
-          <div class="info-card">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <span class="info-label">Location</span>
-              <span class="info-value">Based in Canada</span>
+
+        <div class="about-info-panel" data-aos="fade-left" data-aos-delay="300">
+          <div class="info-card-terminal">
+            <div class="info-card-header">
+              <i class="fa-solid fa-terminal"></i>
+              <span>profile.json</span>
+            </div>
+            <div class="info-card-body">
+              <div class="info-row">
+                <span class="info-key">"location"</span>
+                <span class="info-sep">:</span>
+                <span class="info-val cyan">"Canada"</span>
+              </div>
+              <div class="info-row">
+                <span class="info-key">"role"</span>
+                <span class="info-sep">:</span>
+                <span class="info-val green">"Tech Support II Lead"</span>
+              </div>
+              <div class="info-row">
+                <span class="info-key">"company"</span>
+                <span class="info-sep">:</span>
+                <span class="info-val purple">"Walmart Canada"</span>
+              </div>
+              <div class="info-row">
+                <span class="info-key">"focus"</span>
+                <span class="info-sep">:</span>
+                <span class="info-val orange">"AI Education + Enterprise IT"</span>
+              </div>
+              <div class="info-row">
+                <span class="info-key">"status"</span>
+                <span class="info-sep">:</span>
+                <span class="info-val green">"Open to Consulting"</span>
+              </div>
             </div>
           </div>
-          <div class="info-card">
-            <i class="fas fa-briefcase"></i>
-            <div>
-              <span class="info-label">Current Role</span>
-              <span class="info-value">Tech Support II Team Lead @ Walmart Canada</span>
+
+          <div class="about-badges">
+            <div class="floating-badge badge-az900">
+              <i class="fa-brands fa-microsoft"></i>
+              AZ-900 Certified
             </div>
-          </div>
-          <div class="info-card">
-            <i class="fas fa-rocket"></i>
-            <div>
-              <span class="info-label">Venture</span>
-              <span class="info-value">Founder @ AI School for Kids</span>
+            <div class="floating-badge badge-comptia">
+              <i class="fa-solid fa-shield-halved"></i>
+              CompTIA A+
             </div>
-          </div>
-          <div class="info-card">
-            <i class="fas fa-graduation-cap"></i>
-            <div>
-              <span class="info-label">Education</span>
-              <span class="info-value">B.E. Computer Engineering + Networking Diploma</span>
+            <div class="floating-badge badge-ibm">
+              <i class="fa-solid fa-atom"></i>
+              IBM AI Workflow
             </div>
-          </div>
-          <div class="info-card">
-            <i class="fas fa-certificate"></i>
-            <div>
-              <span class="info-label">Certifications</span>
-              <span class="info-value">Google Generative AI ¬∑ Python (Google)</span>
-            </div>
-          </div>
-          <div class="info-card">
-            <i class="fas fa-heart"></i>
-            <div>
-              <span class="info-label">Interests</span>
-              <span class="info-value">AI ¬∑ Machine Learning ¬∑ Cricket üèè</span>
+            <div class="floating-badge badge-google">
+              <i class="fa-brands fa-google"></i>
+              Google IT Cert
             </div>
           </div>
         </div>
@@ -798,128 +288,150 @@
     </div>
   </section>
 
-  <!-- ‚îÄ‚îÄ‚îÄ EXPERIENCE ‚îÄ‚îÄ‚îÄ -->
-  <section class="section section-dark" id="experience">
+  <!-- ==================== EXPERIENCE ==================== -->
+  <section id="experience" class="experience-section">
+    <div class="tech-grid-bg"></div>
     <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">Career Journey</span>
-        <h2>Experience</h2>
-      </div>
+      <div class="section-tag" data-aos="fade-up">Career Timeline</div>
+      <h2 class="section-title glitch" data-aos="fade-up" data-aos-delay="100" data-text="Experience">Experience</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+        Building enterprise systems and educating the future
+      </p>
+
       <div class="timeline">
 
-        <div class="timeline-item" data-aos>
-          <div class="timeline-dot"></div>
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+          </div>
           <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-icon ai-school">üéì</div>
-              <div class="tl-meta">
-                <h3>Founder & CEO</h3>
-                <span class="tl-company">AI School for Kids</span>
-                <span class="tl-date"><i class="fas fa-calendar"></i> Jan 2026 ‚Äì Present ¬∑ 3 mos</span>
-                <span class="tl-location"><i class="fas fa-map-marker-alt"></i> Canada ¬∑ Remote</span>
+            <div class="timeline-header">
+              <div class="timeline-meta">
+                <span class="timeline-date">
+                  <i class="fa-regular fa-calendar"></i>
+                  Mar 2024 - Present
+                </span>
+                <span class="timeline-location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  Canada, Remote
+                </span>
               </div>
-              <span class="tl-badge current">Current</span>
+              <span class="timeline-badge current">Current</span>
             </div>
-            <ul class="tl-bullets">
-              <li>Founder & CEO focused on turning young learners into confident AI creators</li>
-              <li>Building AI School for Kids from concept to launch with a mission to reach 1,000+ kids with AI education</li>
-              <li>Designing curriculum, managing operations, and growing the brand across Canada</li>
-            </ul>
-            <div class="tl-tags">
-              <span>AI Education</span><span>Entrepreneurship</span><span>Curriculum Design</span><span>Leadership</span>
+            <h3 class="timeline-title">Founder &amp; AI Educator</h3>
+            <div class="timeline-company">
+              <i class="fa-solid fa-robot"></i>
+              AI School for Kids
+            </div>
+            <p class="timeline-desc">
+              Founded and lead Canada's premier AI education platform for children. Developing interactive AI curriculum for ages 6-18, covering Prompt Engineering, Machine Learning fundamentals, and responsible AI use. Empowering over 1000 students nationwide.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag tag-cyan">AI Curriculum</span>
+              <span class="tag tag-purple">EdTech</span>
+              <span class="tag tag-green">Prompt Engineering</span>
+              <span class="tag tag-pink">Leadership</span>
             </div>
           </div>
         </div>
 
-        <div class="timeline-item" data-aos>
-          <div class="timeline-dot"></div>
+        <div class="timeline-item timeline-right" data-aos="fade-left" data-aos-delay="150">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+          </div>
           <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-icon walmart">üõí</div>
-              <div class="tl-meta">
-                <h3>Technology Support II, Team Lead</h3>
-                <span class="tl-company">Walmart Canada</span>
-                <span class="tl-date"><i class="fas fa-calendar"></i> May 2023 ‚Äì Present ¬∑ 2 yrs 11 mos</span>
-                <span class="tl-location"><i class="fas fa-map-marker-alt"></i> Mississauga, Ontario ¬∑ Hybrid</span>
+            <div class="timeline-header">
+              <div class="timeline-meta">
+                <span class="timeline-date">
+                  <i class="fa-regular fa-calendar"></i>
+                  Jul 2022 - Present
+                </span>
+                <span class="timeline-location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  Greater Toronto Area
+                </span>
               </div>
-              <span class="tl-badge current">Current</span>
+              <span class="timeline-badge current">Current</span>
             </div>
-            <ul class="tl-bullets">
-              <li>Play a pivotal role in enhancing IT operations and support for Walmart Canada</li>
-              <li>Lead a team providing top-tier Level 1 support, managing incidents and escalations</li>
-              <li>Specializing in Microsoft Azure, Information Technology operations and team management</li>
-            </ul>
-            <div class="tl-tags">
-              <span>Information Technology</span><span>Microsoft Azure</span><span>Team Leadership</span><span>ITSM</span>
+            <h3 class="timeline-title">Technology Support II Team Lead</h3>
+            <div class="timeline-company">
+              <i class="fa-solid fa-store"></i>
+              Walmart Canada
+            </div>
+            <p class="timeline-desc">
+              Leading enterprise IT support operations for Walmart Canada. Spearheading AI chatbot development initiatives using NLP and Generative AI. Managing cross-functional tech support teams and driving process automation to increase operational efficiency.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag tag-cyan">AI Chatbot</span>
+              <span class="tag tag-purple">NLP</span>
+              <span class="tag tag-orange">Team Lead</span>
+              <span class="tag tag-green">Gen AI</span>
             </div>
           </div>
         </div>
 
-        <div class="timeline-item" data-aos>
-          <div class="timeline-dot"></div>
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+          </div>
           <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-icon mufg">üè¶</div>
-              <div class="tl-meta">
-                <h3>Service Desk Analyst</h3>
-                <span class="tl-company">MUFG</span>
-                <span class="tl-date"><i class="fas fa-calendar"></i> Jul 2022 ‚Äì May 2023 ¬∑ 11 mos</span>
-                <span class="tl-location"><i class="fas fa-map-marker-alt"></i> Greater Toronto Area, Canada</span>
+            <div class="timeline-header">
+              <div class="timeline-meta">
+                <span class="timeline-date">
+                  <i class="fa-regular fa-calendar"></i>
+                  Oct 2021 - Jul 2022
+                </span>
+                <span class="timeline-location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  Mississauga, ON
+                </span>
               </div>
             </div>
-            <ul class="tl-bullets">
-              <li>Served as a key IT professional specializing in Azure Administration, Office 365, ServiceNow</li>
-              <li>Managed complex technical support requests and improved service desk workflows</li>
-              <li>Delivered seamless IT support across diverse enterprise environments</li>
-            </ul>
-            <div class="tl-tags">
-              <span>Azure Admin</span><span>Office 365</span><span>ServiceNow</span><span>Microsoft Office</span>
+            <h3 class="timeline-title">IT Support Specialist Level 2</h3>
+            <div class="timeline-company">
+              <i class="fa-solid fa-globe"></i>
+              Walmart Global Tech
+            </div>
+            <p class="timeline-desc">
+              Delivered Level 2 IT support across Azure, Office 365, and ServiceNow platforms. Managed escalated incidents, maintained cloud infrastructure, and contributed to enterprise-scale deployments and system migrations.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag tag-cyan">Azure</span>
+              <span class="tag tag-purple">Office 365</span>
+              <span class="tag tag-green">ServiceNow</span>
             </div>
           </div>
         </div>
 
-        <div class="timeline-item" data-aos>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-icon walmart">üåê</div>
-              <div class="tl-meta">
-                <h3>IT Support Specialist Level 2</h3>
-                <span class="tl-company">Walmart Global Tech</span>
-                <span class="tl-date"><i class="fas fa-calendar"></i> Oct 2021 ‚Äì Jul 2022 ¬∑ 10 mos</span>
-                <span class="tl-location"><i class="fas fa-map-marker-alt"></i> Mississauga, Ontario, Canada</span>
-              </div>
-            </div>
-            <ul class="tl-bullets">
-              <li>Provided hands-on support for client desktop and network environments</li>
-              <li>Leveraged Azure Administration, Office 365, ServiceNow, and Active Directory</li>
-              <li>Delivered Level 2 support across multiple technical domains</li>
-            </ul>
-            <div class="tl-tags">
-              <span>Active Directory</span><span>Azure</span><span>ServiceNow</span><span>Networking</span>
-            </div>
+        <div class="timeline-item timeline-right" data-aos="fade-left" data-aos-delay="250">
+          <div class="timeline-marker">
+            <div class="timeline-dot dot-dim"></div>
           </div>
-        </div>
-
-        <div class="timeline-item" data-aos>
-          <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <div class="tl-header">
-              <div class="tl-icon solutions">üîß</div>
-              <div class="tl-meta">
-                <h3>Computer Network Technician</h3>
-                <span class="tl-company">Solutions, Your Organized Living Store</span>
-                <span class="tl-date"><i class="fas fa-calendar"></i> Oct 2019 ‚Äì Aug 2021 ¬∑ 1 yr 11 mos</span>
-                <span class="tl-location"><i class="fas fa-map-marker-alt"></i> Mississauga, Ontario, Canada</span>
+            <div class="timeline-header">
+              <div class="timeline-meta">
+                <span class="timeline-date">
+                  <i class="fa-regular fa-calendar"></i>
+                  Oct 2019 - Aug 2021
+                </span>
+                <span class="timeline-location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  Mississauga, ON
+                </span>
               </div>
             </div>
-            <ul class="tl-bullets">
-              <li>Responsible for resolving technical issues and enhancing user productivity</li>
-              <li>Provided end-to-end support across various platforms and tools</li>
-              <li>Managed computer networking and software training for end users</li>
-            </ul>
-            <div class="tl-tags">
-              <span>Computer Networking</span><span>Technical Support</span><span>Software Training</span>
+            <h3 class="timeline-title">Computer Network Technician</h3>
+            <div class="timeline-company">
+              <i class="fa-solid fa-network-wired"></i>
+              Solutions, Your Organized Living Store
+            </div>
+            <p class="timeline-desc">
+              Managed network infrastructure, hardware installations, and IT support. Developed foundational expertise in networking, system configuration, and client-facing technical communication.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag tag-cyan">Networking</span>
+              <span class="tag tag-purple">Hardware</span>
+              <span class="tag tag-green">IT Support</span>
             </div>
           </div>
         </div>
@@ -928,328 +440,456 @@
     </div>
   </section>
 
-  <!-- ‚îÄ‚îÄ‚îÄ SKILLS ‚îÄ‚îÄ‚îÄ -->
-  <section class="section" id="skills">
+  <!-- ==================== SKILLS ==================== -->
+  <section id="skills" class="skills-section">
     <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">What I Know</span>
-        <h2>Skills & Expertise</h2>
-      </div>
+      <div class="section-tag" data-aos="fade-up">Technical Proficiency</div>
+      <h2 class="section-title glitch" data-aos="fade-up" data-aos-delay="100" data-text="Skills">Skills</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+        A fusion of enterprise IT mastery and AI innovation
+      </p>
+
       <div class="skills-grid">
-        <div class="skill-category" data-aos>
-          <h3><span class="cat-icon">ü§ñ</span> Artificial Intelligence</h3>
-          <div class="skill-bars">
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>AI Chatbot Development</span><span>90%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-solid fa-brain"></i>
             </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Generative AI</span><span>85%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">AI &amp; Machine Learning</span>
+              <span class="skill-pct">90%</span>
             </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Machine Learning</span><span>75%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>NLP</span><span>70%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="90">
+              <div class="skill-bar-shimmer"></div>
             </div>
           </div>
         </div>
 
-        <div class="skill-category" data-aos>
-          <h3><span class="cat-icon">‚òÅÔ∏è</span> Cloud & Infrastructure</h3>
-          <div class="skill-bars">
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Microsoft Azure</span><span>88%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="130">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-solid fa-network-wired"></i>
             </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Azure Administration</span><span>85%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">IT Support &amp; Networking</span>
+              <span class="skill-pct">92%</span>
             </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Active Directory</span><span>85%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Office 365</span><span>90%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="92">
+              <div class="skill-bar-shimmer"></div>
             </div>
           </div>
         </div>
 
-        <div class="skill-category" data-aos>
-          <h3><span class="cat-icon">üåê</span> Networking & Support</h3>
-          <div class="skill-bars">
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Computer Networking</span><span>88%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-brands fa-python"></i>
             </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>ServiceNow</span><span>85%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">Python</span>
+              <span class="skill-pct">75%</span>
             </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Technical Troubleshooting</span><span>92%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Network Engineering</span><span>80%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="75">
+              <div class="skill-bar-shimmer"></div>
             </div>
           </div>
         </div>
 
-        <div class="skill-category" data-aos>
-          <h3><span class="cat-icon">üíª</span> Programming & Tools</h3>
-          <div class="skill-bars">
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Python</span><span>75%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="190">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-brands fa-microsoft"></i>
             </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Microsoft Office Suite</span><span>92%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">Microsoft Office Suite</span>
+              <span class="skill-pct">92%</span>
             </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>Project Management</span><span>82%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
-            </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-label"><span>IT Team Leadership</span><span>88%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="92">
+              <div class="skill-bar-shimmer"></div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Tech badges -->
-      <div class="tech-badges" data-aos>
-        <span class="tech-badge"><i class="fab fa-microsoft"></i> Azure</span>
-        <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
-        <span class="tech-badge"><i class="fas fa-robot"></i> AI/ML</span>
-        <span class="tech-badge"><i class="fas fa-network-wired"></i> Networking</span>
-        <span class="tech-badge"><i class="fas fa-cloud"></i> Cloud</span>
-        <span class="tech-badge"><i class="fas fa-ticket-alt"></i> ServiceNow</span>
-        <span class="tech-badge"><i class="fab fa-google"></i> Gen AI</span>
-        <span class="tech-badge"><i class="fas fa-users"></i> Team Lead</span>
-        <span class="tech-badge"><i class="fas fa-shield-alt"></i> Active Directory</span>
-        <span class="tech-badge"><i class="fas fa-desktop"></i> Office 365</span>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="220">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-solid fa-cloud"></i>
+            </div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">Cloud (Azure)</span>
+              <span class="skill-pct">80%</span>
+            </div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="80">
+              <div class="skill-bar-shimmer"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-solid fa-users-gear"></i>
+            </div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">Team Leadership</span>
+              <span class="skill-pct">88%</span>
+            </div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="88">
+              <div class="skill-bar-shimmer"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="280">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">AI Education</span>
+              <span class="skill-pct">95%</span>
+            </div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="95">
+              <div class="skill-bar-shimmer"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="310">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-solid fa-ticket"></i>
+            </div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">ServiceNow</span>
+              <span class="skill-pct">85%</span>
+            </div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="85">
+              <div class="skill-bar-shimmer"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ‚îÄ‚îÄ‚îÄ EDUCATION ‚îÄ‚îÄ‚îÄ -->
-  <section class="section section-dark" id="education">
+  <!-- ==================== EDUCATION ==================== -->
+  <section id="education" class="education-section">
+    <div class="hex-grid"></div>
     <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">Academic Background</span>
-        <h2>Education</h2>
-      </div>
-      <div class="edu-grid">
-        <div class="edu-card" data-aos>
-          <div class="edu-icon">üéì</div>
+      <div class="section-tag" data-aos="fade-up">Academic Background</div>
+      <h2 class="section-title glitch" data-aos="fade-up" data-aos-delay="100" data-text="Education">Education</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+        Foundational engineering and networking excellence
+      </p>
+
+      <div class="education-grid">
+        <div class="edu-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="edu-icon-wrap">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
           <div class="edu-content">
-            <h3>Bachelor's Degree, Computer Engineering</h3>
-            <span class="edu-school">Vishwakarma Government Engineering College</span>
-            <span class="edu-date">Jul 2012 ‚Äì Apr 2016</span>
-            <span class="edu-grade"><i class="fas fa-star"></i> Grade: A</span>
-            <p class="edu-desc">Strong foundation in computer systems, software engineering, algorithms, and digital electronics.</p>
+            <div class="edu-level">Bachelor of Technology</div>
+            <h3 class="edu-field">Computer Engineering</h3>
+            <div class="edu-institution">
+              <i class="fa-solid fa-building-columns"></i>
+              Charusat University
+            </div>
+            <div class="edu-tags">
+              <span class="tag tag-cyan">Engineering</span>
+              <span class="tag tag-purple">Computer Science</span>
+            </div>
           </div>
+          <div class="edu-glow"></div>
         </div>
-        <div class="edu-card" data-aos>
-          <div class="edu-icon">üè´</div>
+
+        <div class="edu-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="edu-icon-wrap">
+            <i class="fa-solid fa-school"></i>
+          </div>
           <div class="edu-content">
-            <h3>Diploma, Computer Systems Networking & Telecommunications</h3>
-            <span class="edu-school">St. Clair College</span>
-            <span class="edu-date">2018 ‚Äì 2019</span>
-            <p class="edu-desc">Specialized training in network infrastructure, telecommunications, and enterprise IT systems.</p>
+            <div class="edu-level">Diploma</div>
+            <h3 class="edu-field">Computer Engineering Networking</h3>
+            <div class="edu-institution">
+              <i class="fa-solid fa-building-columns"></i>
+              Humber College
+            </div>
+            <div class="edu-tags">
+              <span class="tag tag-cyan">Networking</span>
+              <span class="tag tag-green">Canada</span>
+            </div>
+          </div>
+          <div class="edu-glow"></div>
+        </div>
+      </div>
+
+      <!-- ==================== CERTIFICATIONS ==================== -->
+      <div id="certifications" style="padding-top: 2rem;">
+        <div class="section-tag" data-aos="fade-up" style="margin-top: 3rem;">Professional Certifications</div>
+        <h2 class="section-title glitch" data-aos="fade-up" data-aos-delay="100" data-text="Certifications">Certifications</h2>
+      </div>
+
+      <div class="certs-grid">
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="cert-icon cert-ms">
+            <i class="fa-brands fa-microsoft"></i>
+          </div>
+          <div class="cert-body">
+            <h4 class="cert-name">Azure Fundamentals</h4>
+            <div class="cert-issuer">Microsoft Certified - AZ-900</div>
+            <div class="cert-badge-pill">Verified</div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="150">
+          <div class="cert-icon cert-comptia">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="cert-body">
+            <h4 class="cert-name">CompTIA A+</h4>
+            <div class="cert-issuer">CompTIA Certification</div>
+            <div class="cert-badge-pill">Verified</div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="cert-icon cert-ibm">
+            <i class="fa-solid fa-atom"></i>
+          </div>
+          <div class="cert-body">
+            <h4 class="cert-name">AI Enterprise Workflow</h4>
+            <div class="cert-issuer">IBM Certified</div>
+            <div class="cert-badge-pill">Verified</div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="250">
+          <div class="cert-icon cert-google">
+            <i class="fa-brands fa-google"></i>
+          </div>
+          <div class="cert-body">
+            <h4 class="cert-name">IT Support Certificate</h4>
+            <div class="cert-issuer">Google Career Certificate</div>
+            <div class="cert-badge-pill">Verified</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ‚îÄ‚îÄ‚îÄ CERTIFICATIONS ‚îÄ‚îÄ‚îÄ -->
-  <section class="section" id="certifications">
+  <!-- ==================== PROJECTS ==================== -->
+  <section id="projects" class="projects-section">
+    <div class="tech-grid-bg"></div>
     <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">Credentials</span>
-        <h2>Licenses & Certifications</h2>
-      </div>
-      <div class="cert-grid">
-        <div class="cert-card" data-aos>
-          <div class="cert-logo google">G</div>
-          <div class="cert-content">
-            <h3>Generative AI</h3>
-            <span class="cert-issuer">Google</span>
-            <span class="cert-date"><i class="fas fa-calendar-check"></i> Issued May 2025</span>
-            <div class="cert-badge"><i class="fas fa-brain"></i> Artificial Intelligence (AI)</div>
-          </div>
-        </div>
-        <div class="cert-card" data-aos>
-          <div class="cert-logo google">G</div>
-          <div class="cert-content">
-            <h3>Crash Course on Python</h3>
-            <span class="cert-issuer">Google</span>
-            <span class="cert-date"><i class="fas fa-calendar-check"></i> Issued Jan 2024</span>
-            <div class="cert-badge"><i class="fab fa-python"></i> Python Programming</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="section-tag" data-aos="fade-up">Portfolio</div>
+      <h2 class="section-title glitch" data-aos="fade-up" data-aos-delay="100" data-text="Projects">Projects</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+        Real-world systems with measurable impact
+      </p>
 
-  <!-- ‚îÄ‚îÄ‚îÄ PROJECTS ‚îÄ‚îÄ‚îÄ -->
-  <section class="section section-dark" id="projects">
-    <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">What I've Built</span>
-        <h2>Projects</h2>
-      </div>
       <div class="projects-grid">
-        <div class="project-card featured" data-aos>
-          <div class="project-glow"></div>
-          <div class="project-header">
-            <div class="project-icon">üéì</div>
-            <span class="project-status live">Live</span>
-          </div>
-          <h3>AI School for Kids</h3>
-          <p>
-            Building an educational platform from the ground up to teach AI concepts to children.
-            Mission: reach 1,000+ kids across Canada with hands-on, engaging AI learning experiences.
-          </p>
-          <div class="project-tags">
-            <span>AI Education</span><span>EdTech</span><span>Entrepreneurship</span>
-          </div>
-          <div class="project-links">
-            <a href="https://linkedin.com/in/kuldip9033" target="_blank" class="project-link">
-              <i class="fab fa-linkedin"></i> View on LinkedIn
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card" data-aos>
-          <div class="project-header">
-            <div class="project-icon">üîÑ</div>
-            <span class="project-status completed">Completed</span>
-          </div>
-          <h3>GLS Migration</h3>
-          <p>
-            Led a critical migration from a legacy mainframe system to Walmart's in-house GLS product,
-            streamlining logistics operations and improving system reliability.
-          </p>
-          <div class="project-meta">
-            <span><i class="fas fa-building"></i> Walmart Global Tech</span>
-            <span><i class="fas fa-calendar"></i> Feb 2021 ‚Äì Jul 2022</span>
-          </div>
-          <div class="project-tags">
-            <span>System Migration</span><span>Mainframe</span><span>Enterprise IT</span>
+        <div class="project-card project-featured" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card-inner">
+            <div class="project-featured-label">
+              <i class="fa-solid fa-star"></i>
+              Featured Project
+            </div>
+            <div class="project-top">
+              <div class="project-icon">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <div class="project-links-row">
+                <a href="https://www.aischoolforkids.ca" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Visit AI School for Kids">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">AI School for Kids</h3>
+            <p class="project-desc">
+              Canada's innovative AI education platform making artificial intelligence accessible for children ages 6-18. Custom curriculum covering ML basics, Prompt Engineering, and responsible AI - reaching 1000+ students across Canada.
+            </p>
+            <div class="project-url-line">
+              <a href="https://www.aischoolforkids.ca" target="_blank" rel="noopener noreferrer">www.aischoolforkids.ca</a>
+            </div>
+            <div class="project-tags">
+              <span class="tag tag-cyan">AI Education</span>
+              <span class="tag tag-purple">EdTech</span>
+              <span class="tag tag-pink">Curriculum Design</span>
+              <span class="tag tag-green">Prompt Engineering</span>
+            </div>
           </div>
         </div>
 
-        <div class="project-card" data-aos>
-          <div class="project-header">
-            <div class="project-icon">ü§ñ</div>
-            <span class="project-status ongoing">Ongoing</span>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="project-card-inner">
+            <div class="project-top">
+              <div class="project-icon">
+                <i class="fa-solid fa-database"></i>
+              </div>
+            </div>
+            <h3 class="project-title">Walmart GLS Migration</h3>
+            <p class="project-desc">
+              Led the enterprise migration from legacy mainframe systems to the modern GLS platform at Walmart Canada. Managed data integrity, downtime minimization, and cross-team coordination for a seamless transition at scale.
+            </p>
+            <div class="project-tags">
+              <span class="tag tag-cyan">Legacy Migration</span>
+              <span class="tag tag-purple">Enterprise IT</span>
+              <span class="tag tag-orange">GLS</span>
+            </div>
           </div>
-          <h3>AI Chatbot Development</h3>
-          <p>
-            Designing and building conversational AI chatbots that solve real-world problems with
-            natural language processing and machine learning at their core.
-          </p>
-          <div class="project-tags">
-            <span>NLP</span><span>Chatbot</span><span>Python</span><span>Gen AI</span>
-          </div>
-          <div class="project-links">
-            <a href="mailto:lazyprogrammer9033@gmail.com" class="project-link">
-              <i class="fas fa-envelope"></i> Inquire
-            </a>
+        </div>
+
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-card-inner">
+            <div class="project-top">
+              <div class="project-icon">
+                <i class="fa-solid fa-comments"></i>
+              </div>
+            </div>
+            <h3 class="project-title">AI Chatbot Development</h3>
+            <p class="project-desc">
+              Designed and implemented an enterprise AI chatbot leveraging NLP, Python, and Generative AI models. Integrated with internal ticketing systems to automate Level 1 support queries and reduce resolution times.
+            </p>
+            <div class="project-tags">
+              <span class="tag tag-cyan">NLP</span>
+              <span class="tag tag-purple">Python</span>
+              <span class="tag tag-green">Gen AI</span>
+              <span class="tag tag-pink">Automation</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ‚îÄ‚îÄ‚îÄ CONTACT ‚îÄ‚îÄ‚îÄ -->
-  <section class="section" id="contact">
+  <!-- ==================== CONTACT ==================== -->
+  <section id="contact" class="contact-section">
+    <div class="hex-grid"></div>
     <div class="container">
-      <div class="section-header" data-aos>
-        <span class="section-tag">Let's Connect</span>
-        <h2>Get In Touch</h2>
-      </div>
+      <div class="section-tag" data-aos="fade-up">Get in Touch</div>
+      <h2 class="section-title glitch" data-aos="fade-up" data-aos-delay="100" data-text="Contact">Contact</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+        Ready to collaborate? Let's build something extraordinary.
+      </p>
+
       <div class="contact-grid">
-        <div class="contact-info" data-aos>
-          <h3>Let's build something amazing together.</h3>
-          <p>
-            Whether you're interested in AI education, IT solutions, or just want to talk tech (or cricket!),
-            my inbox is always open!
+        <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
+          <h3 class="contact-info-title">Let's Connect</h3>
+          <p class="contact-info-desc">
+            Whether you're interested in AI consulting, enterprise IT leadership, or bringing AI education to your community - I'd love to hear from you.
           </p>
+
           <div class="contact-links">
             <a href="mailto:lazyprogrammer9033@gmail.com" class="contact-link-item">
-              <div class="cl-icon"><i class="fas fa-envelope"></i></div>
-              <div>
-                <span class="cl-label">Email</span>
-                <span class="cl-value">lazyprogrammer9033@gmail.com</span>
+              <div class="contact-link-icon">
+                <i class="fa-solid fa-envelope"></i>
               </div>
-            </a>
-            <a href="https://linkedin.com/in/kuldip9033" target="_blank" class="contact-link-item">
-              <div class="cl-icon"><i class="fab fa-linkedin"></i></div>
-              <div>
-                <span class="cl-label">LinkedIn</span>
-                <span class="cl-value">linkedin.com/in/kuldip9033</span>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Email</span>
+                <span class="contact-link-val">lazyprogrammer9033@gmail.com</span>
               </div>
+              <i class="fa-solid fa-arrow-right contact-link-arrow"></i>
             </a>
-            <a href="#" class="contact-link-item">
-              <div class="cl-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <div>
-                <span class="cl-label">Location</span>
-                <span class="cl-value">Based in Canada</span>
+
+            <a href="https://www.linkedin.com/in/kuldip9033" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+              <div class="contact-link-icon contact-icon-linkedin">
+                <i class="fa-brands fa-linkedin-in"></i>
               </div>
+              <div class="contact-link-text">
+                <span class="contact-link-label">LinkedIn</span>
+                <span class="contact-link-val">linkedin.com/in/kuldip9033</span>
+              </div>
+              <i class="fa-solid fa-arrow-right contact-link-arrow"></i>
             </a>
+
+            <div class="contact-link-item no-hover">
+              <div class="contact-link-icon contact-icon-location">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Location</span>
+                <span class="contact-link-val">Based in Canada</span>
+              </div>
+            </div>
           </div>
         </div>
-        <form class="contact-form" id="contactForm" data-aos>
-          <div class="form-row">
+
+        <div class="contact-form-wrap" data-aos="fade-left" data-aos-delay="300">
+          <form class="contact-form" id="contactForm" novalidate>
             <div class="form-group">
-              <label>Your Name</label>
-              <input type="text" placeholder="John Doe" required />
+              <label for="formName">Name</label>
+              <input type="text" id="formName" name="name" placeholder="Your Name" autocomplete="name" />
             </div>
             <div class="form-group">
-              <label>Your Email</label>
-              <input type="email" placeholder="john@example.com" required />
+              <label for="formEmail">Email</label>
+              <input type="email" id="formEmail" name="email" placeholder="your@email.com" autocomplete="email" />
             </div>
-          </div>
-          <div class="form-group">
-            <label>Subject</label>
-            <input type="text" placeholder="Let's collaborate!" required />
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea rows="5" placeholder="Tell me about your project or just say hi..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary full-width">
-            <i class="fas fa-paper-plane"></i> Send Message
-          </button>
-        </form>
+            <div class="form-group">
+              <label for="formSubject">Subject</label>
+              <input type="text" id="formSubject" name="subject" placeholder="AI Consulting / Project Inquiry" />
+            </div>
+            <div class="form-group">
+              <label for="formMessage">Message</label>
+              <textarea id="formMessage" name="message" rows="5" placeholder="Tell me about your project or inquiry..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="formSubmit">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Send Message</span>
+            </button>
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ‚îÄ‚îÄ‚îÄ FOOTER ‚îÄ‚îÄ‚îÄ -->
+  <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
+    <div class="footer-glow-line"></div>
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-logo">KP<span class="dot">.</span></div>
-        <p class="footer-text">Designed & Built by <strong>Kuldip Patel</strong> ¬∑ Based in Canada</p>
+        <div class="footer-logo">
+          <span class="logo-bracket">&lt;</span>
+          <span class="logo-name">KP</span>
+          <span class="logo-bracket">/&gt;</span>
+        </div>
+        <p class="footer-tagline">
+          AI Specialist | Tech Lead | Educator
+        </p>
         <div class="footer-links">
-          <a href="https://linkedin.com/in/kuldip9033" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:lazyprogrammer9033@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="mailto:lazyprogrammer9033@gmail.com" class="footer-link" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/kuldip9033" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.aischoolforkids.ca" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="AI School for Kids">
+            <i class="fa-solid fa-robot"></i>
+          </a>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">
+            &copy; 2025 Kuldip Patel. Built with passion &amp; AI.
+          </p>
+          <p class="footer-quote">"Empowering minds. Engineering futures."</p>
         </div>
       </div>
-      <p class="footer-copy">¬© 2026 Kuldip Patel. All rights reserved.</p>
     </div>
   </footer>
 
