@@ -347,8 +347,8 @@ strong { color: var(--cyan); font-weight: 600; }
 }
 
 [data-aos].aos-animate {
-  opacity: 1;
-  transform: none;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* ========================================
