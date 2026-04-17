@@ -189,23 +189,47 @@
         var p = particles[k];
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0,212,255,' + p.opacity + ')';
-        ctx.fill();
 
-        // Glow ring for some particles
-        if (p.radius > 2) {
+        if (p.burst) {
+          ctx.fillStyle = 'rgba(255,255,255,' + p.opacity + ')';
+          ctx.fill();
           ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius + 2, 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(0,212,255,' + (p.opacity * 0.3) + ')';
+          ctx.arc(p.x, p.y, p.radius + 3, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(0,212,255,' + (p.opacity * 0.6) + ')';
           ctx.lineWidth = 1;
           ctx.stroke();
+        } else {
+          ctx.fillStyle = 'rgba(0,212,255,' + p.opacity + ')';
+          ctx.fill();
+          if (p.radius > 2) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius + 2, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(0,212,255,' + (p.opacity * 0.3) + ')';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
         }
       }
     }
 
     function updateParticles() {
-      for (var i = 0; i < particles.length; i++) {
+      for (var i = particles.length - 1; i >= 0; i--) {
         var p = particles[i];
+
+        // Burst particle lifecycle
+        if (p.burst) {
+          p.life -= 0.022;
+          p.opacity = Math.max(0, p.life * 0.9);
+          if (p.life <= 0) {
+            particles.splice(i, 1);
+            continue;
+          }
+          p.vx *= 0.94;
+          p.vy *= 0.94;
+          p.x += p.vx;
+          p.y += p.vy;
+          continue;
+        }
 
         // Mouse attraction
         var mdx = mouseX - p.x;
@@ -231,7 +255,7 @@
         p.x += p.vx;
         p.y += p.vy;
 
-        // Boundary bounce with wrap
+        // Boundary wrap
         if (p.x < 0) p.x = canvas.width;
         if (p.x > canvas.width) p.x = 0;
         if (p.y < 0) p.y = canvas.height;
@@ -269,6 +293,27 @@
         mouseY = e.touches[0].clientY - rect.top;
       }
     }, { passive: true });
+
+    // Click to burst
+    canvas.addEventListener('click', function (e) {
+      var rect = canvas.getBoundingClientRect();
+      var cx = e.clientX - rect.left;
+      var cy = e.clientY - rect.top;
+      var count = 12;
+      for (var b = 0; b < count; b++) {
+        var angle = (b / count) * Math.PI * 2 + Math.random() * 0.4;
+        var speed = Math.random() * 4 + 1.5;
+        particles.push({
+          x: cx, y: cy,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          radius: Math.random() * 2 + 1,
+          opacity: 0.9,
+          burst: true,
+          life: 1.0
+        });
+      }
+    });
 
     var resizeTimer;
     window.addEventListener('resize', function () {
@@ -342,9 +387,7 @@
      COUNTER ANIMATION FOR STATS
   ======================================== */
   function animateCounter(el, target, duration) {
-    var start = 0;
     var startTime = null;
-    var isFloat = target % 1 !== 0;
 
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
@@ -475,5 +518,107 @@
      (in case page is loaded mid-scroll)
   ======================================== */
   onScroll();
+
+  /* ========================================
+     READING PROGRESS BAR
+  ======================================== */
+  var readingProgress = document.getElementById('readingProgress');
+  if (readingProgress) {
+    function updateProgress() {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? Math.min((window.scrollY / docHeight) * 100, 100) : 0;
+      readingProgress.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  /* ========================================
+     BACK TO TOP BUTTON
+  ======================================== */
+  var backToTopBtn = document.getElementById('backToTop');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ========================================
+     CURSOR GLOW (DESKTOP ONLY)
+  ======================================== */
+  if (!('ontouchstart' in window) && window.matchMedia('(pointer: fine)').matches) {
+    var cursorGlow = document.createElement('div');
+    cursorGlow.className = 'cursor-glow';
+    document.body.appendChild(cursorGlow);
+
+    var glowTargetX = -400, glowTargetY = -400;
+    var glowCurrentX = -400, glowCurrentY = -400;
+
+    document.addEventListener('mousemove', function (e) {
+      glowTargetX = e.clientX;
+      glowTargetY = e.clientY;
+    });
+
+    document.addEventListener('mouseleave', function () {
+      glowTargetX = -400;
+      glowTargetY = -400;
+    });
+
+    (function animateCursorGlow() {
+      glowCurrentX += (glowTargetX - glowCurrentX) * 0.1;
+      glowCurrentY += (glowTargetY - glowCurrentY) * 0.1;
+      cursorGlow.style.transform = 'translate(' + (glowCurrentX - 200) + 'px, ' + (glowCurrentY - 200) + 'px)';
+      requestAnimationFrame(animateCursorGlow);
+    })();
+  }
+
+  /* ========================================
+     3D CARD TILT ON HOVER
+  ======================================== */
+  if (!('ontouchstart' in window)) {
+    var tiltCards = document.querySelectorAll(
+      '.skill-card, .project-card, .cert-card, .edu-card, .timeline-card'
+    );
+    tiltCards.forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width;
+        var y = (e.clientY - rect.top) / rect.height;
+        var tiltX = (y - 0.5) * -10;
+        var tiltY = (x - 0.5) * 10;
+        card.style.transform = 'perspective(900px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) translateY(-6px)';
+        card.style.borderColor = 'rgba(0,212,255,0.55)';
+        card.style.boxShadow = '0 18px 40px rgba(0,212,255,0.18), 0 0 18px rgba(0,212,255,0.12)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+        card.style.borderColor = '';
+        card.style.boxShadow = '';
+      });
+    });
+  }
+
+  /* ========================================
+     BUTTON RIPPLE EFFECT
+  ======================================== */
+  document.querySelectorAll('.btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      var rect = btn.getBoundingClientRect();
+      var ripple = document.createElement('span');
+      ripple.className = 'btn-ripple';
+      ripple.style.left = (e.clientX - rect.left) + 'px';
+      ripple.style.top = (e.clientY - rect.top) + 'px';
+      btn.appendChild(ripple);
+      setTimeout(function () { ripple.remove(); }, 700);
+    });
+  });
 
 })();
