@@ -355,33 +355,6 @@
 
   initAOS();
 
-  /* ========================================
-     SKILL BAR ANIMATION ON SCROLL
-  ======================================== */
-  function initSkillBars() {
-    var skillBars = document.querySelectorAll('.skill-bar-fill');
-    if (!skillBars.length) return;
-
-    var skillObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          var bar = entry.target;
-          var width = bar.getAttribute('data-width') || '0';
-          setTimeout(function () {
-            bar.style.width = width + '%';
-          }, 200);
-          skillObserver.unobserve(bar);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    skillBars.forEach(function (bar) {
-      bar.style.width = '0%';
-      skillObserver.observe(bar);
-    });
-  }
-
-  initSkillBars();
 
   /* ========================================
      COUNTER ANIMATION FOR STATS
@@ -585,7 +558,7 @@
   ======================================== */
   if (!('ontouchstart' in window)) {
     var tiltCards = document.querySelectorAll(
-      '.skill-card, .project-card, .cert-card, .edu-card, .timeline-card'
+      '.skill-chip, .project-card, .cert-card, .edu-card, .timeline-card'
     );
     tiltCards.forEach(function (card) {
       card.addEventListener('mousemove', function (e) {
