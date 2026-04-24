@@ -1388,7 +1388,7 @@ strong { color: var(--cyan); font-weight: 600; }
 ======================================== */
 .certs-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   margin-top: 2.5rem;
 }
@@ -1908,7 +1908,7 @@ strong { color: var(--cyan); font-weight: 600; }
   }
 
   .certs-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .timeline::before { display: none; }
