@@ -84,11 +84,11 @@
   if (typewriterEl) {
     var phrases = [
       'AI Specialist',
-      'Tech Support Team Lead',
       'AI Educator',
       'Founder | AI School for Kids',
       'Technology Analyst',
-      'Networking Expert'
+      'Cloud Expert',
+      'Product Manager'
     ];
     var phraseIndex = 0;
     var charIndex = 0;
