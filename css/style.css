@@ -1277,10 +1277,28 @@ strong { color: var(--cyan); font-weight: 600; }
   color: var(--text);
 }
 
-.skill-pct {
+.skill-level {
   font-family: var(--mono);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.skill-level::after {
+  content: ' · ' attr(data-pct);
+  color: transparent;
+  transition: color var(--transition);
+}
+
+.skill-card:hover .skill-level {
+  color: var(--cyan);
+}
+
+.skill-card:hover .skill-level::after {
   color: var(--cyan);
 }
 
@@ -2191,15 +2209,28 @@ strong { color: var(--cyan); font-weight: 600; }
 }
 
 /* ========================================
-   SKILL BAR HOVER GLOW
+   SKILL BAR HOVER GLOW & ICON ANIMATION
 ======================================== */
-.skill-card:hover .skill-pct {
-  text-shadow: 0 0 12px rgba(0,212,255,0.7);
+.skill-icon-wrap i {
+  transition: transform 0.4s cubic-bezier(.34,1.56,.64,1);
+  display: inline-block;
 }
 
 .skill-card:hover .skill-icon-wrap {
   background: linear-gradient(135deg, rgba(0,212,255,0.25), rgba(124,58,237,0.25));
   box-shadow: 0 0 16px rgba(0,212,255,0.2);
+}
+
+.skill-card:hover .skill-icon-wrap i {
+  transform: rotate(8deg) scale(1.15);
+}
+
+.skill-card:hover .skill-bar-fill {
+  box-shadow: 0 0 14px rgba(0,212,255,0.5);
+}
+
+.skill-card:hover .skill-bar-shimmer {
+  animation-duration: 1.2s;
 }
 
 /* ========================================
