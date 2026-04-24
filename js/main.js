@@ -558,7 +558,7 @@
   ======================================== */
   if (!('ontouchstart' in window)) {
     var tiltCards = document.querySelectorAll(
-      '.skill-chip, .project-card, .cert-card, .edu-card, .timeline-card'
+      '.skill-card, .project-card, .cert-card, .edu-card, .timeline-card'
     );
     tiltCards.forEach(function (card) {
       card.addEventListener('mousemove', function (e) {
