@@ -2015,7 +2015,7 @@ strong { color: var(--cyan); font-weight: 600; }
   }
 
   .ai-school-stats {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .expertise-grid {
@@ -2052,10 +2052,6 @@ strong { color: var(--cyan); font-weight: 600; }
   }
 
   .certs-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ai-school-stats {
     grid-template-columns: 1fr;
   }
 
