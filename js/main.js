@@ -46,18 +46,37 @@
   var hamburger = document.getElementById('hamburger');
   var navMenu = document.getElementById('navLinks');
 
+  function lockScroll() {
+    var sy = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + sy + 'px';
+    document.body.style.width = '100%';
+  }
+
+  function unlockScroll() {
+    var sy = Math.abs(parseInt(document.body.style.top || '0', 10));
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, sy);
+  }
+
   if (hamburger && navMenu) {
     hamburger.addEventListener('click', function () {
       hamburger.classList.toggle('open');
       navMenu.classList.toggle('open');
-      document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+      if (navMenu.classList.contains('open')) {
+        lockScroll();
+      } else {
+        unlockScroll();
+      }
     });
 
     navMenu.querySelectorAll('.nav-link').forEach(function (link) {
       link.addEventListener('click', function () {
         hamburger.classList.remove('open');
         navMenu.classList.remove('open');
-        document.body.style.overflow = '';
+        unlockScroll();
       });
     });
   }
@@ -504,13 +523,6 @@
     if (!formStatus) return;
     formStatus.textContent = msg;
     formStatus.className = 'form-status ' + type;
-  }
-
-  /* ========================================
-     NAVBAR Z-INDEX FIX FOR MOBILE MENU
-  ======================================== */
-  if (hamburger && navMenu) {
-    navMenu.style.zIndex = '999';
   }
 
   /* ========================================
