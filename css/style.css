@@ -1992,6 +1992,12 @@ strong { color: var(--cyan); font-weight: 600; }
 
   .hamburger { display: flex; }
 
+  /* Push theme toggle + hamburger to the right on mobile */
+  .theme-toggle {
+    margin-left: auto;
+    margin-right: -0.75rem;
+  }
+
   .hero-stats {
     flex-direction: column;
     gap: 1.5rem;
