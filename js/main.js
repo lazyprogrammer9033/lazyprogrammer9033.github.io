@@ -49,20 +49,26 @@
   var hamburger = document.getElementById('hamburger');
   var navMenu = document.getElementById('navLinks');
 
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    navMenu.classList.remove('open');
+  }
+
   if (hamburger && navMenu) {
     hamburger.addEventListener('click', function () {
       hamburger.classList.toggle('open');
       navMenu.classList.toggle('open');
-      document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
     });
 
     navMenu.querySelectorAll('.nav-link').forEach(function (link) {
-      link.addEventListener('click', function () {
-        hamburger.classList.remove('open');
-        navMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMenu);
     });
+
+    window.addEventListener('scroll', function () {
+      if (navMenu.classList.contains('open')) {
+        closeMenu();
+      }
+    }, { passive: true });
   }
 
   /* ========================================
@@ -480,13 +486,6 @@
     if (!formStatus) return;
     formStatus.textContent = msg;
     formStatus.className = 'form-status ' + type;
-  }
-
-  /* ========================================
-     NAVBAR Z-INDEX FIX FOR MOBILE MENU
-  ======================================== */
-  if (hamburger && navMenu) {
-    navMenu.style.zIndex = '999';
   }
 
   /* ========================================
