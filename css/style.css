@@ -2190,3 +2190,201 @@ strong { color: var(--cyan); font-weight: 600; }
   }
   .cursor-glow { display: none; }
 }
+
+/* ========================================
+   THEME TOGGLE BUTTON
+======================================== */
+.theme-toggle {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  border-radius: 100px;
+  background: rgba(0,212,255,0.08);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  flex-shrink: 0;
+  transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.theme-toggle:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--glow);
+}
+
+.theme-toggle-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: #fff;
+  position: absolute;
+  left: 3px;
+  transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), background 0.35s ease;
+  pointer-events: none;
+}
+
+[data-theme="light"] .theme-toggle-thumb {
+  transform: translateX(24px);
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+}
+
+.theme-icon-moon { display: block; }
+.theme-icon-sun  { display: none;  }
+[data-theme="light"] .theme-icon-moon { display: none;  }
+[data-theme="light"] .theme-icon-sun  { display: block; }
+
+/* ========================================
+   SMOOTH THEME TRANSITION
+======================================== */
+.theme-transitioning,
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition: background-color 0.4s ease, color 0.4s ease,
+              border-color 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+/* ========================================
+   LIGHT THEME VARIABLES
+======================================== */
+[data-theme="light"] {
+  --bg:           #f0f4ff;
+  --bg2:          #e8eeff;
+  --bg3:          #dde5ff;
+  --card:         rgba(255,255,255,0.9);
+  --border:       rgba(0,100,180,0.15);
+  --border-hover: rgba(0,100,180,0.5);
+  --cyan:         #0077aa;
+  --cyan2:        #005588;
+  --text:         #090e1f;
+  --text-muted:   #374151;
+  --text-dim:     #6b7280;
+  --glow:         0 4px 20px rgba(0,100,180,0.18);
+  --glow-strong:  0 8px 35px rgba(0,100,180,0.3);
+  --glow-purple:  0 4px 20px rgba(124,58,237,0.2);
+}
+
+[data-theme="light"] body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+[data-theme="light"] ::selection {
+  background: rgba(0,120,200,0.2);
+  color: var(--cyan);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+/* Navbar */
+[data-theme="light"] .navbar.scrolled {
+  background: rgba(240,244,255,0.94);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .nav-links {
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  [data-theme="light"] .nav-links.open {
+    background: rgba(240,244,255,0.97);
+  }
+}
+
+/* Hero */
+[data-theme="light"] .hero {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,150,220,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(124,58,237,0.07) 0%, transparent 50%),
+    var(--bg);
+}
+
+[data-theme="light"] .hero-stats {
+  background: rgba(255,255,255,0.7);
+  border-color: rgba(0,100,180,0.15);
+}
+
+/* Section titles (hardcoded white gradient) */
+[data-theme="light"] .section-title {
+  background: linear-gradient(135deg, #090e1f 0%, #4b5563 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cards with hardcoded low-opacity white */
+[data-theme="light"] .timeline-card {
+  background: rgba(255,255,255,0.85);
+}
+
+[data-theme="light"] .timeline-card:hover {
+  background: rgba(255,255,255,0.95);
+}
+
+/* Terminal / code blocks */
+[data-theme="light"] .info-card-terminal,
+[data-theme="light"] .ai-school-terminal {
+  background: #e8eeff;
+}
+
+[data-theme="light"] .terminal-header {
+  background: rgba(0,0,0,0.05);
+  border-bottom-color: rgba(0,0,0,0.07);
+}
+
+[data-theme="light"] .ai-school-card-inner {
+  background: var(--bg2);
+}
+
+/* Form */
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group textarea {
+  background: rgba(0,0,0,0.04);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+[data-theme="light"] .form-group input::placeholder,
+[data-theme="light"] .form-group textarea::placeholder {
+  color: var(--text-dim);
+}
+
+[data-theme="light"] .form-group input:focus,
+[data-theme="light"] .form-group textarea:focus {
+  background: rgba(0,100,180,0.05);
+  border-color: var(--cyan);
+}
+
+/* Contact title gradient */
+[data-theme="light"] .contact-info-title {
+  background: linear-gradient(135deg, var(--text), var(--text-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cursor glow */
+[data-theme="light"] .cursor-glow {
+  background: radial-gradient(circle, rgba(0,100,180,0.05) 0%, transparent 65%);
+}
+
+/* Theme toggle light state */
+[data-theme="light"] .theme-toggle {
+  background: rgba(245,158,11,0.1);
+  border-color: rgba(245,158,11,0.3);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+  border-color: rgba(245,158,11,0.6);
+  box-shadow: 0 0 20px rgba(245,158,11,0.3);
+}

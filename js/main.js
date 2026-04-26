@@ -6,6 +6,9 @@
 (function () {
   'use strict';
 
+  /* Shared canvas particle colour — updated by theme toggle */
+  var particleColorValue = '0,212,255';
+
   /* ========================================
      NAVBAR - SHRINK ON SCROLL + ACTIVE LINKS
   ======================================== */
@@ -177,7 +180,7 @@
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = 'rgba(0,212,255,' + alpha + ')';
+            ctx.strokeStyle = 'rgba(' + particleColorValue + ',' + alpha + ')';
             ctx.lineWidth = 0.7;
             ctx.stroke();
           }
@@ -195,16 +198,16 @@
           ctx.fill();
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius + 3, 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(0,212,255,' + (p.opacity * 0.6) + ')';
+          ctx.strokeStyle = 'rgba(' + particleColorValue + ',' + (p.opacity * 0.6) + ')';
           ctx.lineWidth = 1;
           ctx.stroke();
         } else {
-          ctx.fillStyle = 'rgba(0,212,255,' + p.opacity + ')';
+          ctx.fillStyle = 'rgba(' + particleColorValue + ',' + p.opacity + ')';
           ctx.fill();
           if (p.radius > 2) {
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.radius + 2, 0, Math.PI * 2);
-            ctx.strokeStyle = 'rgba(0,212,255,' + (p.opacity * 0.3) + ')';
+            ctx.strokeStyle = 'rgba(' + particleColorValue + ',' + (p.opacity * 0.3) + ')';
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -593,5 +596,39 @@
       setTimeout(function () { ripple.remove(); }, 700);
     });
   });
+
+  /* ========================================
+     DAY / NIGHT THEME TOGGLE
+  ======================================== */
+  var themeToggleBtn = document.getElementById('themeToggle');
+  var htmlEl = document.documentElement;
+
+  function applyTheme(theme, animate) {
+    if (animate) {
+      document.body.classList.add('theme-transitioning');
+      setTimeout(function () {
+        document.body.classList.remove('theme-transitioning');
+      }, 500);
+    }
+    if (theme === 'light') {
+      htmlEl.setAttribute('data-theme', 'light');
+      particleColorValue = '0,100,180';
+    } else {
+      htmlEl.removeAttribute('data-theme');
+      particleColorValue = '0,212,255';
+    }
+    localStorage.setItem('theme', theme);
+  }
+
+  /* Apply saved preference on load */
+  var savedTheme = localStorage.getItem('theme') || 'dark';
+  applyTheme(savedTheme, false);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', function () {
+      var current = htmlEl.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      applyTheme(current === 'light' ? 'dark' : 'light', true);
+    });
+  }
 
 })();
