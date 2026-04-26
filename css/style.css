@@ -2018,6 +2018,10 @@ strong { color: var(--cyan); font-weight: 600; }
     height: 1px;
   }
 
+  .hero-scroll-indicator {
+    display: none;
+  }
+
   .hero-buttons {
     flex-direction: column;
     align-items: center;
