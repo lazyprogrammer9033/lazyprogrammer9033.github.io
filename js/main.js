@@ -445,36 +445,43 @@
         return;
       }
 
-      // Simulate sending
       if (formSubmit) {
         formSubmit.disabled = true;
         formSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Sending...</span>';
       }
 
-      // Build mailto link as fallback
-      var mailtoBody = 'Name: ' + (name ? name.value : '') + '%0D%0A' +
-                       'Email: ' + (email ? email.value : '') + '%0D%0A%0D%0A' +
-                       (message ? message.value : '');
-      var mailtoSubject = subject && subject.value ? subject.value : 'Portfolio Inquiry';
-      var mailtoLink = 'mailto:lazyprogrammer9033@gmail.com' +
-                       '?subject=' + encodeURIComponent(mailtoSubject) +
-                       '&body=' + mailtoBody;
+      var formData = {
+        name:    name    ? name.value.trim()    : '',
+        email:   email   ? email.value.trim()   : '',
+        subject: subject ? subject.value.trim() : 'Portfolio Inquiry',
+        message: message ? message.value.trim() : ''
+      };
 
-      setTimeout(function () {
-        window.location.href = mailtoLink;
-
+      fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify(formData)
+      })
+      .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+      .then(function (result) {
+        if (result.ok) {
+          showStatus('success', 'Message sent! I\'ll get back to you soon.');
+          contactForm.reset();
+          setTimeout(function () { if (formStatus) formStatus.textContent = ''; }, 5000);
+        } else {
+          var errMsg = (result.data.errors || []).map(function (e) { return e.message; }).join(', ');
+          showStatus('error', errMsg || 'Something went wrong. Please try again.');
+        }
+      })
+      .catch(function () {
+        showStatus('error', 'Network error. Please email me directly at lazyprogrammer9033@gmail.com');
+      })
+      .finally(function () {
         if (formSubmit) {
           formSubmit.disabled = false;
           formSubmit.innerHTML = '<i class="fa-solid fa-paper-plane"></i> <span>Send Message</span>';
         }
-
-        showStatus('success', 'Opening your email client...');
-        contactForm.reset();
-
-        setTimeout(function () {
-          if (formStatus) formStatus.textContent = '';
-        }, 4000);
-      }, 900);
+      });
     });
   }
 
