@@ -13,8 +13,6 @@
   <meta property="og:title"       content="Kuldip Patel | AI Specialist &amp; Tech Lead" />
   <meta property="og:description" content="AI-Certified Technology Specialist, Founder of AI School for Kids, and Technology Support Team Lead at Walmart Canada." />
   <meta property="og:image"       content="https://lazyprogrammer9033.github.io/og-image.png" />
-
-  <!-- Twitter / X card -->
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:title"       content="Kuldip Patel | AI Specialist &amp; Tech Lead" />
   <meta name="twitter:description" content="AI-Certified Technology Specialist, Founder of AI School for Kids, and Technology Support Team Lead at Walmart Canada." />
@@ -75,54 +73,61 @@
   <section id="hero" class="hero">
     <canvas id="neuralCanvas"></canvas>
     <div class="scanlines"></div>
-    <div class="hero-content">
-      <div class="hero-badge" data-aos="fade-down">
-        <span class="badge-dot"></span>
-        Available for AI Consulting
-      </div>
-      <h1 class="hero-name" data-aos="fade-up" data-aos-delay="100">
-        <span class="name-first">Kuldip</span>
-        <span class="name-last gradient-text">Patel</span>
-      </h1>
-      <div class="hero-typewriter" data-aos="fade-up" data-aos-delay="200">
-        <span class="typewriter-prefix">&gt;&gt;</span>
-        <span class="typewriter-text" id="typewriterText"></span>
-        <span class="typewriter-cursor">|</span>
-      </div>
-      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
-        AI-Certified Technology Specialist building intelligent systems that solve real-world problems.
-      </p>
-      <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-        <a href="#contact" class="btn btn-primary">
-          <i class="fa-solid fa-paper-plane"></i>
-          Get in Touch
-        </a>
-        <a href="#experience" class="btn btn-secondary">
-          <i class="fa-solid fa-briefcase"></i>
-          View Experience
-        </a>
-      </div>
-      <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
-        <div class="stat-item">
-          <div class="stat-value">
-            <span class="stat-number" data-target="7">0</span><span class="stat-plus">+</span>
-          </div>
-          <span class="stat-label">Years Experience</span>
+    <div class="hero-layout">
+      <div class="hero-content">
+        <div class="hero-badge" data-aos="fade-down">
+          <span class="badge-dot"></span>
+          Available for AI Consulting
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-value">
-            <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
-          </div>
-          <span class="stat-label">Connections</span>
+        <h1 class="hero-name" data-aos="fade-up" data-aos-delay="100">
+          <span class="name-first">Kuldip</span>
+          <span class="name-last gradient-text">Patel</span>
+        </h1>
+        <div class="hero-typewriter" data-aos="fade-up" data-aos-delay="200">
+          <span class="typewriter-prefix">&gt;&gt;</span>
+          <span class="typewriter-text" id="typewriterText"></span>
+          <span class="typewriter-cursor">|</span>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-value">
-            <span class="stat-number" data-target="50">0</span><span class="stat-plus">+</span>
-          </div>
-          <span class="stat-label">Kids Taught AI</span>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
+          AI-Certified Technology Specialist building intelligent systems that solve real-world problems.
+        </p>
+        <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i>
+            Get in Touch
+          </a>
+          <a href="#experience" class="btn btn-secondary">
+            <i class="fa-solid fa-briefcase"></i>
+            View Experience
+          </a>
         </div>
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+          <div class="stat-item">
+            <div class="stat-value">
+              <span class="stat-number" data-target="7">0</span><span class="stat-plus">+</span>
+            </div>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-value">
+              <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
+            </div>
+            <span class="stat-label">Connections</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-value">
+              <span class="stat-number" data-target="50">0</span><span class="stat-plus">+</span>
+            </div>
+            <span class="stat-label">Kids Taught AI</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-avatar" id="heroAvatarWrap">
+        <canvas id="avatarCanvas"></canvas>
+        <div class="avatar-scan-line"></div>
+        <div class="avatar-holo-label">[ KP.AI // SPECIALIST.v2 ]</div>
       </div>
     </div>
     <div class="hero-scroll-indicator">
@@ -269,7 +274,7 @@ teach_ai(every_kid_in_canada)</code></pre>
               <div class="info-row">
                 <span class="info-key">"role"</span>
                 <span class="info-sep">:</span>
-                <span class="info-val green">"Technology Support II, Team Lead"</span>
+                <span class="info-val green">"Tech Support II Lead"</span>
               </div>
               <div class="info-row">
                 <span class="info-key">"company"</span>
@@ -290,25 +295,21 @@ teach_ai(every_kid_in_canada)</code></pre>
           </div>
 
           <div class="about-badges">
-            <div class="floating-badge badge-ibm">
-              <i class="fa-solid fa-brain"></i>
-              ML: AI For Everyone
-            </div>
             <div class="floating-badge badge-az900">
               <i class="fa-brands fa-microsoft"></i>
-              MS Azure AI
+              AZ-900 Certified
+            </div>
+            <div class="floating-badge badge-comptia">
+              <i class="fa-solid fa-shield-halved"></i>
+              CompTIA A+
+            </div>
+            <div class="floating-badge badge-ibm">
+              <i class="fa-solid fa-atom"></i>
+              IBM AI Workflow
             </div>
             <div class="floating-badge badge-google">
               <i class="fa-brands fa-google"></i>
-              Generative AI
-            </div>
-            <div class="floating-badge badge-az900">
-              <i class="fa-brands fa-python"></i>
-              Python
-            </div>
-            <div class="floating-badge badge-az900">
-              <i class="fa-brands fa-microsoft"></i>
-              Azure Fundamentals
+              Google IT Cert
             </div>
           </div>
         </div>
@@ -499,54 +500,140 @@ teach_ai(every_kid_in_canada)</code></pre>
       </p>
 
       <div class="skills-grid">
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="60">
-          <div class="skill-icon-wrap"><i class="fa-solid fa-brain"></i></div>
-          <span class="skill-name">AI &amp; Machine Learning</span>
-        </div>
-
         <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="skill-icon-wrap"><i class="fa-solid fa-headset"></i></div>
-          <span class="skill-name">Enterprise IT &amp; Executive Support</span>
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">AI &amp; Machine Learning</span>
+              <span class="skill-pct">90%</span>
+            </div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="90">
+              <div class="skill-bar-shimmer"></div>
+            </div>
+          </div>
         </div>
 
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="140">
-          <div class="skill-icon-wrap"><i class="fa-brands fa-python"></i></div>
-          <span class="skill-name">Python</span>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="130">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">IT Support &amp; Networking</span>
+              <span class="skill-pct">92%</span>
+            </div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="92">
+              <div class="skill-bar-shimmer"></div>
+            </div>
+          </div>
         </div>
 
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="180">
-          <div class="skill-icon-wrap"><i class="fa-brands fa-microsoft"></i></div>
-          <span class="skill-name">Microsoft Office Suite</span>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-brands fa-python"></i>
+            </div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">Python</span>
+              <span class="skill-pct">75%</span>
+            </div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="75">
+              <div class="skill-bar-shimmer"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="190">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-brands fa-microsoft"></i>
+            </div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">Microsoft Office Suite</span>
+              <span class="skill-pct">92%</span>
+            </div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="92">
+              <div class="skill-bar-shimmer"></div>
+            </div>
+          </div>
         </div>
 
         <div class="skill-card" data-aos="fade-up" data-aos-delay="220">
-          <div class="skill-icon-wrap"><i class="fa-solid fa-cloud"></i></div>
-          <span class="skill-name">Cloud (Azure)</span>
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-solid fa-cloud"></i>
+            </div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">Cloud (Azure)</span>
+              <span class="skill-pct">80%</span>
+            </div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="80">
+              <div class="skill-bar-shimmer"></div>
+            </div>
+          </div>
         </div>
 
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="260">
-          <div class="skill-icon-wrap"><i class="fa-solid fa-users-gear"></i></div>
-          <span class="skill-name">Team Leadership</span>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-solid fa-users-gear"></i>
+            </div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">Team Leadership</span>
+              <span class="skill-pct">88%</span>
+            </div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="88">
+              <div class="skill-bar-shimmer"></div>
+            </div>
+          </div>
         </div>
 
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="skill-icon-wrap"><i class="fa-solid fa-chalkboard-user"></i></div>
-          <span class="skill-name">AI Education</span>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="280">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">AI Education</span>
+              <span class="skill-pct">95%</span>
+            </div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="95">
+              <div class="skill-bar-shimmer"></div>
+            </div>
+          </div>
         </div>
 
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="340">
-          <div class="skill-icon-wrap"><i class="fa-solid fa-ticket"></i></div>
-          <span class="skill-name">ServiceNow</span>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="380">
-          <div class="skill-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
-          <span class="skill-name">IT Security &amp; Application Support</span>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="420">
-          <div class="skill-icon-wrap"><i class="fa-solid fa-diagram-project"></i></div>
-          <span class="skill-name">Product Management</span>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="310">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <i class="fa-solid fa-ticket"></i>
+            </div>
+            <div class="skill-name-wrap">
+              <span class="skill-name">ServiceNow</span>
+              <span class="skill-pct">85%</span>
+            </div>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="85">
+              <div class="skill-bar-shimmer"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -572,7 +659,7 @@ teach_ai(every_kid_in_canada)</code></pre>
             <h3 class="edu-field">Computer Engineering</h3>
             <div class="edu-institution">
               <i class="fa-solid fa-building-columns"></i>
-              Vishwakarma Government College, Ahmedabad
+              Charusat University
             </div>
             <div class="edu-tags">
               <span class="tag tag-cyan">Engineering</span>
@@ -584,17 +671,17 @@ teach_ai(every_kid_in_canada)</code></pre>
 
         <div class="edu-card" data-aos="fade-up" data-aos-delay="200">
           <div class="edu-icon-wrap">
-            <i class="fa-solid fa-chart-line"></i>
+            <i class="fa-solid fa-school"></i>
           </div>
           <div class="edu-content">
-            <div class="edu-level">Degree · 2024 – 2026</div>
-            <h3 class="edu-field">Data Analytics</h3>
+            <div class="edu-level">Diploma</div>
+            <h3 class="edu-field">Computer Engineering Networking</h3>
             <div class="edu-institution">
               <i class="fa-solid fa-building-columns"></i>
-              McMaster University, Canada
+              Humber College
             </div>
             <div class="edu-tags">
-              <span class="tag tag-cyan">Data Analytics</span>
+              <span class="tag tag-cyan">Networking</span>
               <span class="tag tag-green">Canada</span>
             </div>
           </div>
@@ -609,58 +696,47 @@ teach_ai(every_kid_in_canada)</code></pre>
       </div>
 
       <div class="certs-grid">
-        <div class="cert-card" data-aos="zoom-in" data-aos-delay="80">
-          <div class="cert-icon cert-ibm">
-            <i class="fa-solid fa-brain"></i>
-          </div>
-          <div class="cert-body">
-            <h4 class="cert-name">Machine Learning: AI For Everyone</h4>
-            <div class="cert-issuer">Coursera</div>
-            <div class="cert-badge-pill">Certified</div>
-          </div>
-        </div>
-
-        <div class="cert-card" data-aos="zoom-in" data-aos-delay="140">
-          <div class="cert-icon cert-ms">
-            <i class="fa-brands fa-microsoft"></i>
-          </div>
-          <div class="cert-body">
-            <h4 class="cert-name">MS Azure AI</h4>
-            <div class="cert-issuer">Microsoft</div>
-            <div class="cert-badge-pill">Certified</div>
-          </div>
-        </div>
-
-        <div class="cert-card" data-aos="zoom-in" data-aos-delay="200">
-          <div class="cert-icon cert-google">
-            <i class="fa-brands fa-google"></i>
-          </div>
-          <div class="cert-body">
-            <h4 class="cert-name">Generative AI</h4>
-            <div class="cert-issuer">Google</div>
-            <div class="cert-badge-pill">Certified</div>
-          </div>
-        </div>
-
-        <div class="cert-card" data-aos="zoom-in" data-aos-delay="260">
-          <div class="cert-icon cert-google">
-            <i class="fa-brands fa-python"></i>
-          </div>
-          <div class="cert-body">
-            <h4 class="cert-name">Python</h4>
-            <div class="cert-issuer">Google</div>
-            <div class="cert-badge-pill">Certified</div>
-          </div>
-        </div>
-
-        <div class="cert-card" data-aos="zoom-in" data-aos-delay="320">
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="100">
           <div class="cert-icon cert-ms">
             <i class="fa-brands fa-microsoft"></i>
           </div>
           <div class="cert-body">
             <h4 class="cert-name">Azure Fundamentals</h4>
-            <div class="cert-issuer">Microsoft - AZ-900</div>
-            <div class="cert-badge-pill">Certified</div>
+            <div class="cert-issuer">Microsoft Certified - AZ-900</div>
+            <div class="cert-badge-pill">Verified</div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="150">
+          <div class="cert-icon cert-comptia">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="cert-body">
+            <h4 class="cert-name">CompTIA A+</h4>
+            <div class="cert-issuer">CompTIA Certification</div>
+            <div class="cert-badge-pill">Verified</div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="cert-icon cert-ibm">
+            <i class="fa-solid fa-atom"></i>
+          </div>
+          <div class="cert-body">
+            <h4 class="cert-name">AI Enterprise Workflow</h4>
+            <div class="cert-issuer">IBM Certified</div>
+            <div class="cert-badge-pill">Verified</div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="250">
+          <div class="cert-icon cert-google">
+            <i class="fa-brands fa-google"></i>
+          </div>
+          <div class="cert-body">
+            <h4 class="cert-name">IT Support Certificate</h4>
+            <div class="cert-issuer">Google Career Certificate</div>
+            <div class="cert-badge-pill">Verified</div>
           </div>
         </div>
       </div>
@@ -859,7 +935,7 @@ teach_ai(every_kid_in_canada)</code></pre>
         </div>
         <div class="footer-bottom">
           <p class="footer-copy">
-            &copy; 2026 Kuldip Patel. Built with passion &amp; AI.
+            &copy; 2025 Kuldip Patel. Built with passion &amp; AI.
           </p>
           <p class="footer-quote">"Empowering minds. Engineering futures."</p>
         </div>
@@ -871,6 +947,48 @@ teach_ai(every_kid_in_canada)</code></pre>
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
+  <!-- ==================== AI CHAT WIDGET ==================== -->
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-panel" id="chatPanel">
+      <div class="chat-header">
+        <div class="chat-header-left">
+          <div class="chat-header-avatar">
+            <i class="fa-solid fa-robot"></i>
+            <span class="chat-online-dot"></span>
+          </div>
+          <div class="chat-header-info">
+            <span class="chat-name">Kuldip AI</span>
+            <span class="chat-status">Online · Ask me anything</span>
+          </div>
+        </div>
+        <button class="chat-close-btn" id="chatClose" aria-label="Close chat">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-suggestions" id="chatSuggestions">
+        <button class="chat-chip">About Kuldip</button>
+        <button class="chat-chip">Experience</button>
+        <button class="chat-chip">Skills</button>
+        <button class="chat-chip">AI School</button>
+        <button class="chat-chip">Certifications</button>
+        <button class="chat-chip">Contact</button>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" class="chat-input" placeholder="Ask me anything..." autocomplete="off" />
+        <button id="chatSend" class="chat-send-btn" aria-label="Send">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+    <button class="chat-fab" id="chatToggle" aria-label="Chat with Kuldip AI">
+      <i class="fa-solid fa-robot chat-fab-icon-open"></i>
+      <i class="fa-solid fa-xmark chat-fab-icon-close"></i>
+      <span class="chat-fab-label">Ask me anything</span>
+    </button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

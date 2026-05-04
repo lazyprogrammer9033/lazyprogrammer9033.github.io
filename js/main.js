@@ -496,6 +496,256 @@
   }
 
   /* ========================================
+     HOLOGRAPHIC AVATAR (Three.js)
+  ======================================== */
+  var avatarCanvas = document.getElementById('avatarCanvas');
+  if (avatarCanvas && typeof THREE !== 'undefined') {
+    var avScene    = new THREE.Scene();
+    var avCamera   = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+    avCamera.position.z = 3.5;
+
+    var avRenderer = new THREE.WebGLRenderer({ canvas: avatarCanvas, alpha: true, antialias: true });
+    var avSize = avatarCanvas.parentElement.offsetWidth || 420;
+    avRenderer.setSize(avSize, avSize);
+    avRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    /* Head wireframe */
+    var headMesh = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(1, 4),
+      new THREE.MeshBasicMaterial({ color: 0x00d4ff, wireframe: true, transparent: true, opacity: 0.22 })
+    );
+    avScene.add(headMesh);
+
+    /* Inner glow core */
+    var coreMesh = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(0.88, 2),
+      new THREE.MeshBasicMaterial({ color: 0x00d4ff, transparent: true, opacity: 0.04 })
+    );
+    avScene.add(coreMesh);
+
+    /* Orbital rings */
+    var ringConfigs = [
+      { r: 1.32, tube: 0.007, rx: 0.5,  ry: 0.0, color: 0x00d4ff, op: 0.6,  spd:  0.5  },
+      { r: 1.44, tube: 0.005, rx: 1.1,  ry: 0.4, color: 0x7c3aed, op: 0.45, spd: -0.35 },
+      { r: 1.54, tube: 0.004, rx: 0.2,  ry: 0.8, color: 0x00d4ff, op: 0.28, spd:  0.22 }
+    ];
+    var avRings = ringConfigs.map(function (d) {
+      var m = new THREE.Mesh(
+        new THREE.TorusGeometry(d.r, d.tube, 6, 128),
+        new THREE.MeshBasicMaterial({ color: d.color, transparent: true, opacity: d.op })
+      );
+      m.rotation.x = d.rx;
+      m.rotation.y = d.ry;
+      m.userData.spd = d.spd;
+      avScene.add(m);
+      return m;
+    });
+
+    /* Floating particle shell */
+    var avPtPos = [];
+    for (var pi = 0; pi < 120; pi++) {
+      var avTheta = Math.random() * Math.PI * 2;
+      var avPhi   = Math.acos(2 * Math.random() - 1);
+      var avR     = 1.55 + Math.random() * 0.5;
+      avPtPos.push(
+        avR * Math.sin(avPhi) * Math.cos(avTheta),
+        avR * Math.sin(avPhi) * Math.sin(avTheta),
+        avR * Math.cos(avPhi)
+      );
+    }
+    var avPtGeo = new THREE.BufferGeometry();
+    avPtGeo.setAttribute('position', new THREE.Float32BufferAttribute(avPtPos, 3));
+    var avParticles = new THREE.Points(
+      avPtGeo,
+      new THREE.PointsMaterial({ color: 0x00d4ff, size: 0.03, transparent: true, opacity: 0.75 })
+    );
+    avScene.add(avParticles);
+
+    /* Orbiting satellite dot */
+    var satMesh = new THREE.Mesh(
+      new THREE.SphereGeometry(0.045, 8, 8),
+      new THREE.MeshBasicMaterial({ color: 0xffffff })
+    );
+    avScene.add(satMesh);
+
+    /* Mouse tracking */
+    var avMX = 0, avMY = 0, avTX = 0, avTY = 0;
+    document.addEventListener('mousemove', function (e) {
+      avMX = e.clientX / window.innerWidth  - 0.5;
+      avMY = e.clientY / window.innerHeight - 0.5;
+    });
+
+    /* Animation loop */
+    (function animateAvatar() {
+      requestAnimationFrame(animateAvatar);
+      var t = Date.now() * 0.001;
+
+      avTX += (avMX * 0.5 - avTX) * 0.05;
+      avTY += (avMY * 0.3 - avTY) * 0.05;
+
+      headMesh.rotation.y = t * 0.25 + avTX;
+      headMesh.rotation.x = avTY * 0.5;
+      coreMesh.rotation.y = headMesh.rotation.y;
+      coreMesh.rotation.x = headMesh.rotation.x;
+
+      avRings.forEach(function (ring) { ring.rotation.z += ring.userData.spd * 0.01; });
+
+      avParticles.rotation.y = t * 0.08;
+
+      satMesh.position.x = Math.cos(t * 0.7) * 1.45;
+      satMesh.position.y = Math.sin(t * 0.7) * 0.5;
+      satMesh.position.z = Math.sin(t * 0.7) * 1.45;
+
+      headMesh.material.opacity = 0.18 + Math.sin(t * 1.5) * 0.06;
+
+      avRenderer.render(avScene, avCamera);
+    }());
+  }
+
+  /* ========================================
+     AI CHAT WIDGET
+  ======================================== */
+  var chatToggle   = document.getElementById('chatToggle');
+  var chatPanel    = document.getElementById('chatPanel');
+  var chatClose    = document.getElementById('chatClose');
+  var chatMessages = document.getElementById('chatMessages');
+  var chatInput    = document.getElementById('chatInput');
+  var chatSend     = document.getElementById('chatSend');
+  var chatSuggs    = document.getElementById('chatSuggestions');
+  var chatIsOpen   = false;
+
+  var chatKB = [
+    { k: ['hi ', 'hello', 'hey ', 'howdy', 'good morning', 'good evening', 'good afternoon', 'sup '],
+      r: "Hey there! 👋 I'm Kuldip's AI assistant. Ask me about his experience, skills, education, projects, or how to get in touch!" },
+    { k: ['who ', 'about kuldip', 'introduce', 'yourself', 'tell me about', 'bio', 'background'],
+      r: "Kuldip Patel is an AI-Certified Technology Specialist based in Canada. He's the Founder of AI School for Kids and Technology Support II Team Lead at Walmart Canada. With 7+ years bridging enterprise IT and AI education — building intelligent systems while teaching kids to build them too." },
+    { k: ['experience', 'work history', 'career', 'job', 'roles', 'positions', 'worked'],
+      r: "Kuldip's career (7+ years):\n→ Founder, AI School for Kids (2026–Now)\n→ Tech Support II Team Lead, Walmart Canada (2023–Now)\n→ Senior Analyst, MUFG (2022–2023)\n→ Senior IT Specialist, Walmart Canada (2021–2022)\n→ System Administrator (2019–2021)" },
+    { k: ['skill', 'tech stack', 'expertise', 'know', 'good at', 'proficien', 'capabilit', 'what can'],
+      r: "Kuldip's skills span two worlds:\n\nTech: Azure Cloud, Python, AI/ML, IT Security, ServiceNow, MS Office 365\n\nLeadership: Team Leadership, Product Management, AI Curriculum Design, Executive Support" },
+    { k: ['education', 'degree', 'study', 'university', 'college', 'academ', 'qualif', 'mcmaster', 'vishwakarma'],
+      r: "🎓 B.Tech Computer Engineering — Vishwakarma Government College, Ahmedabad\n🎓 Degree in Data Analytics — McMaster University, Canada (2024–2026, in progress)" },
+    { k: ['cert', 'certif', 'credential', 'badge', 'qualified', 'az-900', 'azure ai', 'google cert'],
+      r: "Kuldip holds 5 certifications:\n✅ Machine Learning: AI For Everyone — Coursera\n✅ MS Azure AI — Microsoft\n✅ Generative AI — Google\n✅ Python — Google\n✅ Azure Fundamentals AZ-900 — Microsoft" },
+    { k: ['ai school', 'school for kid', 'aischoolforkid', 'teach kid', 'children', 'kid', 'student', 'educat'],
+      r: "AI School for Kids is Kuldip's flagship initiative — teaching AI to Canadian children ages 8–16. Curriculum covers Prompt Engineering, ML basics, and responsible AI use. 50+ students taught nationwide so far! 🤖\n\nVisit: www.aischoolforkids.ca" },
+    { k: ['project', 'portfolio', 'built', 'created', 'made ', 'build', 'chatbot', 'gls', 'walmart project'],
+      r: "Key projects:\n🤖 AI School for Kids — Canada's AI education platform for children (aischoolforkids.ca)\n🗄️ Walmart GLS Migration — Led enterprise legacy-to-modern platform migration\n💬 AI Chatbot — NLP chatbot that automated Level 1 IT support using Python + Gen AI" },
+    { k: ['contact', 'hire', 'reach', 'email', 'connect', 'consult', 'work with', 'availab', 'open to'],
+      r: "Kuldip is open to AI consulting & collaboration! 🚀\n\n📧 lazyprogrammer9033@gmail.com\n💼 linkedin.com/in/kuldip9033\n\nOr use the Contact form on this page!" },
+    { k: ['azure', 'cloud', 'infrastructure', 'az900', 'microsoft azure'],
+      r: "Kuldip is double Azure-certified (AZ-900 + MS Azure AI) with hands-on experience in Azure cloud administration, identity management, and AI services — used at both MUFG and Walmart Canada." },
+    { k: ['python', 'programming', 'coding', 'script', 'automat', 'developer', 'code'],
+      r: "Kuldip is Google-certified in Python and uses it for AI/ML prototyping, automation, and NLP. He built an enterprise AI chatbot entirely in Python, integrated with Generative AI models and ServiceNow ticketing." },
+    { k: ['product', 'product management', ' pm ', 'roadmap', 'manage product'],
+      r: "Beyond technical roles, Kuldip brings strong product management skills — leading cross-functional teams, defining requirements, and delivering enterprise IT projects. He applies this at AI School for Kids managing curriculum roadmap and platform growth." },
+    { k: ['location', 'where ', 'based', 'country', 'canada', 'mississauga', 'ontario', 'remote'],
+      r: "Kuldip is based in Mississauga, Ontario, Canada 🍁. He works hybrid at Walmart Canada and is open to remote consulting worldwide." },
+    { k: ['ai ', 'machine learning', ' ml ', 'nlp', 'generat', 'llm', 'artificial'],
+      r: "AI & ML is Kuldip's true passion. He's certified by Google, Microsoft, and Coursera in AI/ML, built an NLP enterprise chatbot, and founded a school to teach AI to kids. He's actively consulting, educating, and building in the AI space." }
+  ];
+
+  function chatMatch(input) {
+    var lower = ' ' + input.toLowerCase() + ' ';
+    for (var i = 0; i < chatKB.length; i++) {
+      for (var j = 0; j < chatKB[i].k.length; j++) {
+        if (lower.indexOf(chatKB[i].k[j]) !== -1) return chatKB[i].r;
+      }
+    }
+    return "Great question! I'm best at answering about Kuldip's experience, skills, education, certifications, projects, or how to contact him. Try one of those! 😊";
+  }
+
+  function addChatMsg(text, sender) {
+    var wrap = document.createElement('div');
+    wrap.className = 'chat-msg chat-msg-' + sender;
+
+    if (sender === 'bot') {
+      var av = document.createElement('div');
+      av.className = 'chat-msg-avatar';
+      av.innerHTML = '<i class="fa-solid fa-robot"></i>';
+      wrap.appendChild(av);
+    }
+
+    var bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    wrap.appendChild(bubble);
+    chatMessages.appendChild(wrap);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    if (sender === 'bot') {
+      var lines = text.split('\n');
+      var li = 0, ci = 0;
+      function typeNext() {
+        if (li >= lines.length) { bubble.innerHTML = lines.join('<br>'); return; }
+        var line = lines[li];
+        if (ci < line.length) {
+          bubble.innerHTML = lines.slice(0, li).join('<br>') +
+            (li > 0 ? '<br>' : '') + line.slice(0, ci + 1) +
+            '<span class="chat-cursor">|</span>';
+          ci++;
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          setTimeout(typeNext, 16);
+        } else {
+          li++; ci = 0;
+          setTimeout(typeNext, li < lines.length ? 40 : 0);
+        }
+      }
+      setTimeout(typeNext, 350);
+    } else {
+      bubble.textContent = text;
+    }
+  }
+
+  function sendChat(text) {
+    if (!text || !text.trim()) return;
+    if (chatSuggs) chatSuggs.style.display = 'none';
+    addChatMsg(text, 'user');
+    if (chatInput) chatInput.value = '';
+
+    var typing = document.createElement('div');
+    typing.className = 'chat-msg chat-msg-bot chat-typing';
+    typing.innerHTML = '<div class="chat-msg-avatar"><i class="fa-solid fa-robot"></i></div>' +
+      '<div class="chat-bubble"><span></span><span></span><span></span></div>';
+    chatMessages.appendChild(typing);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    setTimeout(function () {
+      if (chatMessages.contains(typing)) chatMessages.removeChild(typing);
+      addChatMsg(chatMatch(text), 'bot');
+    }, 850);
+  }
+
+  if (chatToggle && chatPanel) {
+    chatToggle.addEventListener('click', function () {
+      chatIsOpen = !chatIsOpen;
+      chatPanel.classList.toggle('open', chatIsOpen);
+      chatToggle.classList.toggle('active', chatIsOpen);
+      if (chatIsOpen && chatInput) chatInput.focus();
+    });
+
+    if (chatClose) chatClose.addEventListener('click', function () {
+      chatIsOpen = false;
+      chatPanel.classList.remove('open');
+      chatToggle.classList.remove('active');
+    });
+
+    if (chatSend) chatSend.addEventListener('click', function () { sendChat(chatInput ? chatInput.value : ''); });
+
+    if (chatInput) chatInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') sendChat(chatInput.value);
+    });
+
+    document.querySelectorAll('.chat-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () { sendChat(chip.textContent.trim()); });
+    });
+
+    /* Initial greeting after 1.5s */
+    setTimeout(function () {
+      addChatMsg("Hi! 👋 I'm Kuldip's AI assistant. Ask me about his experience, skills, projects, or how to reach him!", 'bot');
+    }, 1500);
+  }
+
+  /* ========================================
      INITIAL SCROLL CHECK
      (in case page is loaded mid-scroll)
   ======================================== */
