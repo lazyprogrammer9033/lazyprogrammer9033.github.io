@@ -522,6 +522,7 @@ strong { color: var(--cyan); font-weight: 600; }
   text-align: center;
   padding: 6rem 2rem 4rem;
   max-width: 860px;
+  width: 100%;
   margin: 0 auto;
 }
 
